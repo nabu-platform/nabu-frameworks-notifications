@@ -32,6 +32,30 @@
         <input>true</input>
         <vary>false</vary>
     </filters>
+    <foreignFields>
+        <foreignName>notificationProviderId:name</foreignName>
+        <localName>notificationProviderName</localName>
+    </foreignFields>
+    <foreignFields>
+        <foreignName>notificationProviderId:sendId</foreignName>
+        <localName>notificationProviderSendId</localName>
+    </foreignFields>
+    <foreignFields>
+        <foreignName>notificationTemplateId:name</foreignName>
+        <localName>notificationTemplateName</localName>
+    </foreignFields>
+    <foreignFields>
+        <foreignName>notificationTemplateId:defaultLanguage</foreignName>
+        <localName>notificationTemplateDefaultLanguage</localName>
+    </foreignFields>
+    <foreignFields>
+        <foreignName>notificationTemplateId:usage</foreignName>
+        <localName>notificationTemplateUsage</localName>
+    </foreignFields>
+    <foreignFields>
+        <foreignName>notificationTemplateId:variablesTypeId</foreignName>
+        <localName>notificationTemplateVariablesTypeId</localName>
+    </foreignFields>
     <getPermission>notification.list</getPermission>
     <hooks>false</hooks>
     <listPermission>notification.list</listPermission>
