@@ -168,13 +168,73 @@
 				<to>filter/notificationTemplateGroupId[0]</to>
 			</steps>
 		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="02cf9da1a22540e4b12718ca82ccbcec"
+				serviceId="nabu.frameworks.notifications.crud.notificationPreference.services.list"
+				resultName="result70b18efc287f42798f946a0c0ba79c92"
+				temporaryMapping="true"
+				x="162"
+				y="357"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="1184aed3ce874eca87d6b8ed519a367f"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>recipients/id</from>
+				<to>filter/recipientId</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="9473ab0fa5c246058f83ec8db5d1bb7e"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>template/id</from>
+				<to>filter/notificationTemplateId[0]</to>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="d15891194c8e4ac6ba67d50613fca799"
+				serviceId="nabu.utils.List.addAll"
+				resultName="result0c633b68873d4e1ca5a85c0e04668a74"
+				temporaryMapping="true"
+				x="764"
+				y="278"
+				invocationOrder="1"
+				asynchronous="false"
+				recache="false">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="b044238d2362467cb032605dc95012d6"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>result820aee9979504e47b8be9336afdd5b26/results[notificationTemplateId == null]</from>
+				<to>list</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="3ef3c110eeac41bebeb4fe092c846241"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>result70b18efc287f42798f946a0c0ba79c92/results[notificationTemplateGroupId == null || notificationTemplateGroupId == /group/id]</from>
+				<to>objects</to>
+			</steps>
+		</steps>
 		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
 				disabled="false"
-				id="ea20b70a05a04e9d89d4009bec49d7f5"
+				id="b5c7396029044585852f08581abdc6c1"
 				mask="false"
 				optional="false"
 				fixedValue="false">
-			<from>result820aee9979504e47b8be9336afdd5b26/results</from>
+			<from>result0c633b68873d4e1ca5a85c0e04668a74/list</from>
 			<to>preferences</to>
 		</steps>
 	</steps>
@@ -295,7 +355,7 @@
 					mask="false"
 					optional="false"
 					fixedValue="false">
-				<from>preferences</from>
+				<from>preferences[notificationProviderId != null]</from>
 				<to>preferences</to>
 			</steps>
 		</steps>

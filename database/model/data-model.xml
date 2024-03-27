@@ -21,8 +21,8 @@
     <entries>
         <synchronize>true</synchronize>
         <type>nabu.frameworks.notifications.database.types.notificationPreference</type>
-        <x>759</x>
-        <y>359</y>
+        <x>749</x>
+        <y>331</y>
     </entries>
     <entries>
         <synchronize>true</synchronize>

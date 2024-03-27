@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<node artifactManager="be.nabu.eai.module.types.structure.StructureManager" created="2024-01-18T09:24:26.322+01:00" lastModified="2024-03-27T10:46:10.481+01:00" leaf="true" version="16">
+<node artifactManager="be.nabu.eai.module.types.structure.StructureManager" created="2024-01-18T09:24:26.322+01:00" lastModified="2024-03-27T16:28:19.727+01:00" leaf="true" version="18">
     <environmentId>apollo</environmentId>
     <hidden>false</hidden>
     <locked>false</locked>
@@ -7,5 +7,6 @@
     <references>java.util.UUID</references>
     <references>nabu.frameworks.notifications.database.types.notificationTemplateGroup</references>
     <references>nabu.frameworks.notifications.database.types.notificationProvider</references>
+    <references>nabu.frameworks.notifications.database.types.notificationTemplate</references>
     <references>java.lang.String</references>
 </node>

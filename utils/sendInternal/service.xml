@@ -72,8 +72,7 @@
 			disabled="false"
 			id="4033eee0c795442ab3f4c131eb0d2388"
 			lineNumber="5"
-			variable="recipient"
-			into="configuredRecipients">
+			variable="recipient">
 		<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 				comment="Map initial &amp; get preference"
 				disabled="false"
@@ -90,27 +89,99 @@
 			</steps>
 			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
 					disabled="false"
-					id="820a42b59009417488f99c009ec2a6c2"
+					id="593cd6c3893c44c78fa63e7dffc7f6b4"
 					mask="false"
 					optional="false"
 					fixedValue="false">
 				<from>input/preferences[recipientId == /recipient/id]</from>
-				<to>preference</to>
+				<to>recipientPreferences</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Drop"
+					disabled="false"
+					id="e022787a93d5466180283ca499b457ae"
+					path="recipientTemplatePreferences" xsi:nil="true"/>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+				comment="Check if there are template specific preferences. In that case category specific preferences to do not count"
+				disabled="false"
+				id="fbfbcad1717e4a1d8cb1211a08a952cc"
+				label="recipientPreferences"
+				lineNumber="7">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="f25d9ccd20a34d089985ba57fbedfb37"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>recipientPreferences[notificationTemplateId != null]</from>
+				<to>recipientTemplatePreferences</to>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+				comment="Only use the template ones in this case"
+				disabled="false"
+				id="78e37d1223094e089a915648e58edbb9"
+				label="recipientTemplatePreferences"
+				lineNumber="8">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="3cf5cdd5d6854384a251066a0e25d3ed"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>recipientTemplatePreferences</from>
+				<to>recipientPreferences</to>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+				comment="Check how many preferences there are. There is a distinct difference between 0,1 and multiple"
+				disabled="false"
+				id="8a83e275df8d47e19fe172fbf88e89e9"
+				lineNumber="9">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+					disabled="false"
+					id="2b0091ed11a2471c8cdae28b7a5b4cf7"
+					serviceId="nabu.utils.List.size"
+					resultName="result32efd351986b4ccdbd6e6af65824dc54"
+					temporaryMapping="true"
+					x="177"
+					y="178"
+					invocationOrder="0"
+					asynchronous="false"
+					recache="false">
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="886dd357060c4c38aeebee4726c4b833"
+						mask="false"
+						optional="false"
+						fixedValue="false">
+					<from>recipientPreferences</from>
+					<to>list</to>
+				</steps>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="daefc1267c6847a6a82eb6847e161930"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>result32efd351986b4ccdbd6e6af65824dc54/size</from>
+				<to>amountOfPreferences</to>
 			</steps>
 		</steps>
 		<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 				comment="If you have a preference for a provider, see if there is an option"
 				disabled="false"
 				id="2919304c2fe642548ec96fd53a27f272"
-				label="preference/notificationProviderId != null"
-				lineNumber="7">
+				label="amountOfPreferences &gt; 0"
+				lineNumber="10">
 			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
 					disabled="false"
 					id="5d7c3716863b43d28ffbb87931d1f141"
 					mask="false"
 					optional="false"
 					fixedValue="false">
-				<from>options[notificationProviderId == /preference/notificationProviderId]</from>
+				<from>options[notificationProviderId # /recipientPreferences/notificationProviderId]</from>
 				<to>availableOptions</to>
 			</steps>
 			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
@@ -128,7 +199,7 @@
 				disabled="false"
 				id="014c3c9c3ba64045ae278c64935bb720"
 				label="availableOptions == null &amp;&amp; input/template/defaultProviderId != null"
-				lineNumber="8">
+				lineNumber="11">
 			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
 					disabled="false"
 					id="213bdd2bc96a4dffb1a26b312a81f026"
@@ -153,7 +224,7 @@
 				disabled="false"
 				id="c96e18714438405bba5be5441b378074"
 				label="availableOptions == null &amp;&amp; input/group/defaultProviderId != null"
-				lineNumber="9">
+				lineNumber="12">
 			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
 					disabled="false"
 					id="f60154810493469d854cc48cb04bda06"
@@ -178,7 +249,7 @@
 				disabled="false"
 				id="5706a8f53ac44a00933f1694fe2ad82a"
 				label="!availableOptions"
-				lineNumber="10">
+				lineNumber="13">
 			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
 					disabled="false"
 					id="ebd7743786d44be2b233c9f5a45b1f34"
@@ -203,7 +274,7 @@
 				disabled="false"
 				id="205aa051218c40a28a75bbdb911201f2"
 				label="!availableOptions"
-				lineNumber="11"
+				lineNumber="14"
 				message="No options configured for template"
 				whitelist="false" xsi:nil="true"/>
 		<steps xsi:type="be.nabu.libs.services.vm.step.Map"
@@ -211,37 +282,7 @@
 				disabled="false"
 				id="7c1338eb111b47aa8018bd593332b8d3"
 				label="input/language != null"
-				lineNumber="12">
-			<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
-					disabled="false"
-					id="0c21c5524051451d8015279f2f03e62d"
-					serviceId="nabu.utils.Object.first"
-					resultName="resultb59c2dab49d04808a22a42b570604e17"
-					temporaryMapping="true"
-					x="351"
-					y="143"
-					invocationOrder="0"
-					asynchronous="false"
-					recache="false">
-				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-						disabled="false"
-						id="73bdd6a752bd49a398003622f285c1a7"
-						mask="false"
-						optional="false"
-						fixedValue="false">
-					<from>availableOptions[language == /input/language]</from>
-					<to>options</to>
-				</steps>
-			</steps>
-			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-					disabled="false"
-					id="334a6c55fea24772812c2664f2f40bc3"
-					mask="false"
-					optional="false"
-					fixedValue="false">
-				<from>resultb59c2dab49d04808a22a42b570604e17/first</from>
-				<to>correctOption</to>
-			</steps>
+				lineNumber="15">
 			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
 					disabled="false"
 					id="f4b6af50b19a4f1c91fdbe8226069661"
@@ -251,43 +292,22 @@
 				<from>requestedLanguage</from>
 				<to>languageChoice</to>
 			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="0e0e67d1d27f4bbf9286a703d9dfc1b9"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>availableOptions[language == /input/language]</from>
+				<to>correctOptions</to>
+			</steps>
 		</steps>
 		<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 				comment="If there is no option for that language, check the user language"
 				disabled="false"
 				id="92ed70409d96483aa4f2ef7a8a2d3a40"
-				label="correctOption == null &amp;&amp; recipient/language != null"
-				lineNumber="13">
-			<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
-					disabled="false"
-					id="602460272d5a4c8fa3508427a4565eed"
-					serviceId="nabu.utils.Object.first"
-					resultName="resultefac4ff077854e3b8f5f69acaa5ab5c5"
-					temporaryMapping="true"
-					x="110"
-					y="157"
-					invocationOrder="0"
-					asynchronous="false"
-					recache="false">
-				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-						disabled="false"
-						id="2d9c6c1bb058469d922f1c99d2038df8"
-						mask="false"
-						optional="false"
-						fixedValue="false">
-					<from>availableOptions[language == /recipient/language]</from>
-					<to>options</to>
-				</steps>
-			</steps>
-			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-					disabled="false"
-					id="0b3a8b91189d4ee2b0b930dcb85aead6"
-					mask="false"
-					optional="false"
-					fixedValue="false">
-				<from>resultefac4ff077854e3b8f5f69acaa5ab5c5/first</from>
-				<to>correctOption</to>
-			</steps>
+				label="correctOptions == null &amp;&amp; recipient/language != null"
+				lineNumber="16">
 			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
 					disabled="false"
 					id="3c9741444fdf4f73b8135909f8620b36"
@@ -297,42 +317,21 @@
 				<from>recipientLanguage</from>
 				<to>languageChoice</to>
 			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="c7ee863ca75a407c95f5ee5e793cbb46"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>availableOptions[language == /recipient/language]</from>
+				<to>correctOptions</to>
+			</steps>
 		</steps>
 		<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 				disabled="false"
 				id="d007d027f0344ca598c428c6be5a0099"
-				label="correctOption == null &amp;&amp; input/template/defaultLanguage != null"
-				lineNumber="14">
-			<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
-					disabled="false"
-					id="6e497dfaea2d4c83bc0a067569795b7c"
-					serviceId="nabu.utils.Object.first"
-					resultName="result1af23abccdcf41de8af291084546ac11"
-					temporaryMapping="true"
-					x="248"
-					y="260"
-					invocationOrder="0"
-					asynchronous="false"
-					recache="false">
-				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-						disabled="false"
-						id="e34a72bb962248c8a01735471d973279"
-						mask="false"
-						optional="false"
-						fixedValue="false">
-					<from>availableOptions[language == /input/template/defaultLanguage]</from>
-					<to>options</to>
-				</steps>
-			</steps>
-			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-					disabled="false"
-					id="ad7151e8a0fd4e9c9b0101f3628f3bb9"
-					mask="false"
-					optional="false"
-					fixedValue="false">
-				<from>result1af23abccdcf41de8af291084546ac11/first</from>
-				<to>correctOption</to>
-			</steps>
+				label="correctOptions == null &amp;&amp; input/template/defaultLanguage != null"
+				lineNumber="17">
 			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
 					disabled="false"
 					id="aad23360059f498291543fc3c88ce28b"
@@ -342,42 +341,21 @@
 				<from>templateDefault</from>
 				<to>languageChoice</to>
 			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="f11abdb69b2d44b3b4514257e02bdec8"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>availableOptions[language == /input/template/defaultLanguage]</from>
+				<to>correctOptions</to>
+			</steps>
 		</steps>
 		<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 				disabled="false"
 				id="9d56168592794a1c81801f168cfdc574"
-				label="correctOption == null &amp;&amp; input/group/defaultLanguage != null"
-				lineNumber="15">
-			<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
-					disabled="false"
-					id="3ee13af16273452dbf5a0723c82d2be1"
-					serviceId="nabu.utils.Object.first"
-					resultName="result1af23abccdcf41de8af291084546ac11"
-					temporaryMapping="true"
-					x="248"
-					y="260"
-					invocationOrder="0"
-					asynchronous="false"
-					recache="false">
-				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-						disabled="false"
-						id="efc762e8dce54ac9bbb359fdd86b74b5"
-						mask="false"
-						optional="false"
-						fixedValue="false">
-					<from>availableOptions[language == /input/group/defaultLanguage]</from>
-					<to>options</to>
-				</steps>
-			</steps>
-			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-					disabled="false"
-					id="b8dcef243d504b77b01a2022ae8996f2"
-					mask="false"
-					optional="false"
-					fixedValue="false">
-				<from>result1af23abccdcf41de8af291084546ac11/first</from>
-				<to>correctOption</to>
-			</steps>
+				label="correctOptions == null &amp;&amp; input/group/defaultLanguage != null"
+				lineNumber="18">
 			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
 					disabled="false"
 					id="4731971157be418ea2c3fd3fdfdb625b"
@@ -387,13 +365,22 @@
 				<from>groupDefault</from>
 				<to>languageChoice</to>
 			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="2e53196282854bd28c4e7466f77d8add"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>availableOptions[language == /input/group/defaultLanguage]</from>
+				<to>correctOptions</to>
+			</steps>
 		</steps>
 		<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 				comment="If there is no particular option, check one without a language, it is a catch all"
 				disabled="false"
 				id="dc06b504e36542d28de4a952a471d83d"
-				label="!correctOption"
-				lineNumber="16">
+				label="!correctOptions"
+				lineNumber="19">
 			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
 					disabled="false"
 					id="be23a9c3a09944c8b07665be79849516"
@@ -410,23 +397,23 @@
 					optional="false"
 					fixedValue="false">
 				<from>availableOptions[language == null]</from>
-				<to>correctOption</to>
+				<to>correctOptions</to>
 			</steps>
 		</steps>
 		<steps xsi:type="be.nabu.libs.services.vm.step.Map"
-				comment="Get the first option?"
+				comment="If no correct options, all are allowed?"
 				disabled="false"
 				id="2d87055482fc4c0ea881d57dd37c8d97"
-				label="!correctOption"
-				lineNumber="17">
+				label="!correctOptions"
+				lineNumber="20">
 			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
 					disabled="false"
 					id="ecb3d9bf742c462c959d0e9c2e74f1a1"
 					mask="false"
 					optional="false"
 					fixedValue="false">
-				<from>availableOptions[0]</from>
-				<to>correctOption</to>
+				<from>availableOptions</from>
+				<to>correctOptions</to>
 			</steps>
 			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
 					disabled="false"
@@ -439,80 +426,158 @@
 			</steps>
 		</steps>
 		<steps xsi:type="be.nabu.libs.services.vm.step.Map"
-				comment="Map the configuration"
+				comment="If you are able to use your preference, we keep all options, otherwise we only keep the first"
 				disabled="false"
-				id="4418a5d7961a402086e79e41a81281b1"
-				lineNumber="18">
-			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				id="e64dd64af05c48d4b1ed84326a1b658a"
+				label="providerChoice != &quot;preference&quot;"
+				lineNumber="21">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 					disabled="false"
-					id="3ed1483500fb4df6a25b29eacdfff0f1"
-					mask="false"
-					optional="false"
-					fixedValue="false">
-				<from>correctOption</from>
-				<to>configuredRecipients[0]/option</to>
+					id="124da357606e4a8c9cb9d66360b310dc"
+					serviceId="nabu.utils.List.getAll"
+					resultName="resultbec4f865f3714c55bcd08147f3fe903f"
+					temporaryMapping="true"
+					x="99"
+					y="213"
+					invocationOrder="0"
+					asynchronous="false"
+					recache="false">
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="597e0cc8240b42919477757dd48c8498"
+						mask="false"
+						optional="false"
+						fixedValue="false">
+					<from>correctOptions</from>
+					<to>list</to>
+				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="726c86f0b91b4b679a7a211007be58cb"
+						mask="false"
+						optional="false"
+						fixedValue="true">
+					<from>0</from>
+					<to>fromInclusive</to>
+				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="563c973f27004970bae9f28c897ae25d"
+						mask="false"
+						optional="false"
+						fixedValue="true">
+					<from>1</from>
+					<to>toExclusive</to>
+				</steps>
 			</steps>
 			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
 					disabled="false"
-					id="fc260f8cd1174fb1a1f0fe7559de9d1f"
+					id="da5950a37e054e22af0f69540b6ccdfc"
 					mask="false"
 					optional="false"
 					fixedValue="false">
-				<from>languageChoice</from>
-				<to>configuredRecipients[0]/languageChoice</to>
-			</steps>
-			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-					disabled="false"
-					id="53ad518a0eb94a509eb270f6c2f85537"
-					mask="false"
-					optional="false"
-					fixedValue="false">
-				<from>providerChoice</from>
-				<to>configuredRecipients[0]/providerChoice</to>
+				<from>resultbec4f865f3714c55bcd08147f3fe903f/list</from>
+				<to>correctOptions</to>
 			</steps>
 		</steps>
-		<steps xsi:type="be.nabu.libs.services.vm.step.Switch"
+		<steps xsi:type="be.nabu.libs.services.vm.step.For"
 				disabled="false"
-				id="db40922604554f41b43dcc17dbac79d2"
-				lineNumber="19">
+				id="d5cf45d74dcb446489cc80c16b878033"
+				lineNumber="22"
+				variable="correctOption"
+				into="configuredRecipients">
 			<steps xsi:type="be.nabu.libs.services.vm.step.Map"
-					comment="If we have a specific usage, limit the addresses to any (null) or that specific usage"
+					comment="Map main, masked to retain immutability"
 					disabled="false"
-					id="bd279ce6f5c94f31b91bc12831f032c3"
-					label="usage != null"
-					lineNumber="20">
+					id="e3f2c74e72374d7b9b62e16005d9737a"
+					lineNumber="23">
 				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
 						disabled="false"
-						id="84a701b998e04aa0b624445cc3cbfce1"
-						mask="false"
+						id="745b815c54fd4138af9199a46d24a52b"
+						mask="true"
 						optional="false"
 						fixedValue="false">
-					<from>configuredRecipients[0]/addresses[usage == null || usage == /usage]</from>
-					<to>configuredRecipients/addresses[0]</to>
+					<from>recipient</from>
+					<to>configuredRecipients[0]</to>
 				</steps>
 			</steps>
 			<steps xsi:type="be.nabu.libs.services.vm.step.Map"
-					comment="We have no particular usage, limit to &quot;general&quot; addresses with no specific usage"
+					comment="Map the configuration"
 					disabled="false"
-					id="dd9a78fcc6e247c7b758196ccb4fff13"
-					lineNumber="21">
+					id="4418a5d7961a402086e79e41a81281b1"
+					lineNumber="24">
 				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
 						disabled="false"
-						id="282d888490354b2a90a68168c434c146"
+						id="fc260f8cd1174fb1a1f0fe7559de9d1f"
 						mask="false"
 						optional="false"
 						fixedValue="false">
-					<from>configuredRecipients[0]/addresses[usage == null]</from>
-					<to>configuredRecipients/addresses[0]</to>
+					<from>languageChoice</from>
+					<to>configuredRecipients[0]/languageChoice</to>
+				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="53ad518a0eb94a509eb270f6c2f85537"
+						mask="false"
+						optional="false"
+						fixedValue="false">
+					<from>providerChoice</from>
+					<to>configuredRecipients[0]/providerChoice</to>
+				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="d3c2ec22652d4167b1cb457a46b7d795"
+						mask="false"
+						optional="false"
+						fixedValue="false">
+					<from>correctOption</from>
+					<to>configuredRecipients[0]/option</to>
 				</steps>
 			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Switch"
+					disabled="false"
+					id="db40922604554f41b43dcc17dbac79d2"
+					lineNumber="25">
+				<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+						comment="If we have a specific usage, limit the addresses to any (null) or that specific usage"
+						disabled="false"
+						id="bd279ce6f5c94f31b91bc12831f032c3"
+						label="usage != null"
+						lineNumber="26">
+					<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+							disabled="false"
+							id="84a701b998e04aa0b624445cc3cbfce1"
+							mask="false"
+							optional="false"
+							fixedValue="false">
+						<from>configuredRecipients[0]/addresses[usage == null || usage == /usage]</from>
+						<to>configuredRecipients/addresses[0]</to>
+					</steps>
+				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+						comment="We have no particular usage, limit to &quot;general&quot; addresses with no specific usage"
+						disabled="false"
+						id="dd9a78fcc6e247c7b758196ccb4fff13"
+						lineNumber="27">
+					<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+							disabled="false"
+							id="282d888490354b2a90a68168c434c146"
+							mask="false"
+							optional="false"
+							fixedValue="false">
+						<from>configuredRecipients[0]/addresses[usage == null]</from>
+						<to>configuredRecipients/addresses[0]</to>
+					</steps>
+				</steps>
+			</steps>
+			<query>correctOptions</query>
 		</steps>
 		<query>input/recipients</query>
 	</steps>
 	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 			disabled="false"
 			id="043916f9dfaf443f919cc71f30ab1d68"
-			lineNumber="22">
+			lineNumber="28">
 		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 				disabled="false"
 				id="4d01b223a8ae42b6b386c640e3dc0d79"
@@ -569,7 +634,7 @@
 			comment="Group by chosen option"
 			disabled="false"
 			id="ca8e46a8f999455689a39a8e254a9be1"
-			lineNumber="23">
+			lineNumber="29">
 		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 				disabled="false"
 				id="696de867c4324a9f9a7c3ecfc991085d"
@@ -613,18 +678,18 @@
 	<steps xsi:type="be.nabu.libs.services.vm.step.For"
 			disabled="false"
 			id="476ef1d8d2bb49b0bd99b2fd26b60b26"
-			lineNumber="24"
+			lineNumber="30"
 			variable="group">
 		<steps xsi:type="be.nabu.libs.services.vm.step.Sequence"
 				disabled="false"
 				id="adb988a922154a54bb765d588760e9b7"
-				lineNumber="25"
+				lineNumber="31"
 				scopeDefaultTransaction="true">
 			<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 					comment="Get the provider"
 					disabled="false"
 					id="da79c34184d846489ef9e4f0c06bbeb1"
-					lineNumber="26">
+					lineNumber="32">
 				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
 						disabled="false"
 						id="6faacf687c074569b407166f93eff971"
@@ -833,7 +898,7 @@
 					disabled="false"
 					id="fbc24e1b136a45b984ce1dc4cf01fb1e"
 					label="input/variables != null"
-					lineNumber="27">
+					lineNumber="33">
 				<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 						disabled="false"
 						id="3bfc1671d5444d5b8696f0c764f10711"
@@ -917,7 +982,7 @@
 					disabled="false"
 					id="2ca01416e4d646c4b8708b40eb0815e9"
 					label="provider/properties != null"
-					lineNumber="28">
+					lineNumber="34">
 				<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 						disabled="false"
 						id="b1fe616a58ed40b5b56e14e7ab55cb95"
@@ -981,11 +1046,11 @@
 					disabled="false"
 					id="100f6ac9857246388de7c73f72405cb6"
 					label="group/option/properties != null"
-					lineNumber="29">
+					lineNumber="35">
 				<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 						disabled="false"
 						id="31ee039e60fe4c2782a2297cc095d611"
-						lineNumber="30">
+						lineNumber="36">
 					<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 							disabled="false"
 							id="6ffb88b94b83428293a2cfac599cc29b"
@@ -1047,14 +1112,14 @@
 				<steps xsi:type="be.nabu.libs.services.vm.step.Switch"
 						disabled="false"
 						id="0f01b366f67c4aea9102931c7fbf667f"
-						lineNumber="31"
+						lineNumber="37"
 						query="providerProperties">
 					<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 							comment="Just use option properties"
 							disabled="false"
 							id="eb02b5f2eb204d05b67bd65cb8c6c95e"
 							label="null"
-							lineNumber="32">
+							lineNumber="38">
 						<steps xsi:type="be.nabu.libs.services.vm.step.Link"
 								disabled="false"
 								id="c611cf0089734ee49c3f1cb92c0e090b"
@@ -1069,7 +1134,7 @@
 							comment="Merge them"
 							disabled="false"
 							id="956f5d2cb884437faf5d554a32e0c5f0"
-							lineNumber="33">
+							lineNumber="39">
 						<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 								disabled="false"
 								id="279f7a5295504b1b87c9e14972cdea6e"
@@ -1106,7 +1171,7 @@
 			<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 					disabled="false"
 					id="1eceffdeee5e4d74a5ad26603996826b"
-					lineNumber="34">
+					lineNumber="40">
 				<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 						disabled="false"
 						id="e628184af6174500b1f24a25a1322fc9"
@@ -1204,14 +1269,14 @@
 			<steps xsi:type="be.nabu.libs.services.vm.step.For"
 					disabled="false"
 					id="c13941dd99b840478ab09b320319aef8"
-					lineNumber="35"
+					lineNumber="41"
 					variable="sentInstance"
 					into="recipientsToCreate">
 				<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 						comment="Map initial"
 						disabled="false"
 						id="07f609c5ba404ec89d6bdaf07f42e6b1"
-						lineNumber="36">
+						lineNumber="42">
 					<steps xsi:type="be.nabu.libs.services.vm.step.Link"
 							disabled="false"
 							id="4c8bad1aa6864b7bb12b9c6d630299bf"
@@ -1226,7 +1291,7 @@
 						comment="Map rest"
 						disabled="false"
 						id="827b0ae430f34d4a8d262aaf4c665c6d"
-						lineNumber="37">
+						lineNumber="43">
 					<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 							disabled="false"
 							id="deea551fc2414f08935eed9fe9001a07"
@@ -1272,14 +1337,14 @@
 			<steps xsi:type="be.nabu.libs.services.vm.step.For"
 					disabled="false"
 					id="6f999b912e824ce1bbfa43d28a1b1cf2"
-					lineNumber="38"
+					lineNumber="44"
 					variable="sentInstance"
 					into="recipientsToCreate">
 				<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 						comment="Map main"
 						disabled="false"
 						id="8db64eace63a42ceaa02beb497500ec0"
-						lineNumber="39">
+						lineNumber="45">
 					<steps xsi:type="be.nabu.libs.services.vm.step.Link"
 							disabled="false"
 							id="6492c0547b9e4210882e0a158332e157"
@@ -1361,14 +1426,14 @@
 			<steps xsi:type="be.nabu.libs.services.vm.step.For"
 					disabled="false"
 					id="12a967c83a9d485fb27bc50b4bf37a25"
-					lineNumber="40"
+					lineNumber="46"
 					variable="attachment"
 					into="attachmentsToCreate">
 				<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 						comment="Map main"
 						disabled="false"
 						id="094822c4d00b48c2814bf24acd8a2baa"
-						lineNumber="41">
+						lineNumber="47">
 					<steps xsi:type="be.nabu.libs.services.vm.step.Link"
 							disabled="false"
 							id="0a7e632cb7b94e7da26a31139743b1d9"
@@ -1383,7 +1448,7 @@
 						comment="Map rest"
 						disabled="false"
 						id="f06386ec6b964906b8916d9c3228c8eb"
-						lineNumber="42">
+						lineNumber="48">
 					<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 							disabled="false"
 							id="1d4317af076a41c0aa2ebea87bf5e03a"
@@ -1421,7 +1486,7 @@
 					comment="Map final for state"
 					disabled="false"
 					id="dc91f6b5f661401182a2477a53034755"
-					lineNumber="43">
+					lineNumber="49">
 				<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 						disabled="false"
 						id="11de1b0a254e4139bb646f2317ae770a"
@@ -1456,7 +1521,7 @@
 			<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 					disabled="false"
 					id="1a3b23fb85b340cdaf0305ecf860af41"
-					lineNumber="44">
+					lineNumber="50">
 				<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 						disabled="false"
 						id="808c12a950504645ba8d0d07f4f45ebf"
@@ -1487,7 +1552,7 @@
 					disabled="false"
 					id="35cebd07e06a4664865cedc39d3a1d1b"
 					label="recipientsToCreate"
-					lineNumber="45">
+					lineNumber="51">
 				<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 						disabled="false"
 						id="509901d2dde044c5a3261c047a5aa438"
@@ -1514,7 +1579,7 @@
 					disabled="false"
 					id="7c351516008f4509b4b84309eaa2bda5"
 					label="attachmentsToCreate"
-					lineNumber="46">
+					lineNumber="52">
 				<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 						disabled="false"
 						id="30bd2abc557f4409814cec3c7678edec"
@@ -1540,12 +1605,12 @@
 			<steps xsi:type="be.nabu.libs.services.vm.step.Catch"
 					disabled="false"
 					id="a78b046af9104bb592bba8d2acaadd9a"
-					lineNumber="47"
+					lineNumber="53"
 					variable="exception">
 				<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 						disabled="false"
 						id="760ab2996c404ced8a720bc11470c392"
-						lineNumber="48">
+						lineNumber="54">
 					<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 							disabled="false"
 							id="628f18835c844dbc9cbe93388f57c2e1"
@@ -1619,7 +1684,7 @@
 				<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 						disabled="false"
 						id="08271a4ee0614b9bbe10b4f3809cabe7"
-						lineNumber="49">
+						lineNumber="55">
 					<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 							disabled="false"
 							id="61b04b36d9f44ffabaf3016644ff006b"

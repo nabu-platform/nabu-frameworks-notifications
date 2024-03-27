@@ -42,7 +42,6 @@
     </filters>
     <getPermission>notification.list</getPermission>
     <hooks>false</hooks>
-    <listBlacklistFields>properties</listBlacklistFields>
     <listPermission>notification.list</listPermission>
     <listRole>$user</listRole>
     <provider>nabu.services.crud.provider.basic.provider</provider>
