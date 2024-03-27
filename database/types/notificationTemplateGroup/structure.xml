@@ -1,0 +1,11 @@
+<structure collectionName="notificationTemplateGroups" name="notificationTemplateGroup">
+    <field name="id" pattern="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|[0-9a-fA-F]{32}" primaryKey="true" type="java.util.UUID"/>
+    <field name="name" type="java.lang.String" unique="true"/>
+    <field minOccurs="0" name="title" translatable="true" type="java.lang.String"/>
+    <field minOccurs="0" name="description" translatable="true" type="java.lang.String"/>
+    <field minOccurs="0" name="comment" type="java.lang.String"/>
+    <field comment="Default usage for all templates in this group. e.g. invoice, contact, visit,..." minOccurs="0" name="usage" type="java.lang.String"/>
+    <field comment="Groups can be marked as optional. The user can then specifically opt in." minOccurs="0" name="optional" type="java.lang.Boolean"/>
+    <field foreignKey="nabu.frameworks.notifications.database.types.notificationProvider:id" minOccurs="0" name="defaultProviderId" pattern="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|[0-9a-fA-F]{32}" type="java.util.UUID"/>
+    <field minOccurs="0" name="defaultLanguage" type="java.lang.String"/>
+</structure>

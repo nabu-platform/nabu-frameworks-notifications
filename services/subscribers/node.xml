@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<node artifactManager="be.nabu.eai.module.services.vm.VMServiceManager" created="2024-03-27T10:51:22.477+01:00" lastModified="2024-03-27T10:53:08.343+01:00" leaf="true" version="7">
+    <environmentId>apollo</environmentId>
+    <hidden>false</hidden>
+    <locked>false</locked>
+    <properties/>
+    <references>nabu.utils.String.join</references>
+    <references>nabu.frameworks.notifications.crud.notificationTemplateGroup.types.output</references>
+    <references>nabu.frameworks.notifications.crud.notificationTemplateGroup.services.list</references>
+    <references>java.lang.String</references>
+    <references>nabu.frameworks.notifications.crud.notificationPreference.services.list</references>
+    <references>nabu.frameworks.notifications.crud.notificationPreference.types.output</references>
+</node>

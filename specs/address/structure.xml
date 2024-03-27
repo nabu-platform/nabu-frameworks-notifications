@@ -1,0 +1,5 @@
+<structure name="address">
+    <field comment="The actual address, could be an email, phone number, twitter handle,.." name="address" type="java.lang.String"/>
+    <field comment="Defaults to &quot;email&quot;, but &quot;phone&quot; etc is also possible" minOccurs="0" name="addressType" type="java.lang.String"/>
+    <field comment="What is it used for? invoice, contact, visit... Must be resolved before send" minOccurs="0" name="usage" type="java.lang.String"/>
+</structure>

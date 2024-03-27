@@ -1,0 +1,4 @@
+For a short while the recipients were optional which meant if you specific recipient was filled in, it would be sent to all subscribers of a group.
+However, this was rather immediately rolled back because of the errors that might accidently follow.
+
+Instead we offer an explicit service to get all the subscribers

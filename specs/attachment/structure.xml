@@ -1,0 +1,6 @@
+<structure name="attachment">
+    <field name="content" type="[B"/>
+    <field minOccurs="0" name="name" type="java.lang.String"/>
+    <field minOccurs="0" name="contentType" type="java.lang.String"/>
+    <field comment="Some protocols support &quot;inline&quot; vs &quot;attached&quot;" minOccurs="0" name="inline" type="java.lang.Boolean"/>
+</structure>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<node artifactManager="be.nabu.eai.module.web.component.WebComponentManager" created="2024-03-27T14:31:21.816+01:00" lastModified="2024-03-27T14:31:40.489+01:00" leaf="true" version="3">
+    <environmentId>apollo</environmentId>
+    <hidden>false</hidden>
+    <locked>false</locked>
+    <properties/>
+    <references>nabu.frameworks.notifications.crud.notificationInstance</references>
+    <references>nabu.frameworks.notifications.crud.notificationInstanceAttachment</references>
+    <references>nabu.frameworks.notifications.crud.notificationInstanceRecipient</references>
+    <references>nabu.frameworks.notifications.crud.notificationPreference</references>
+    <references>nabu.frameworks.notifications.crud.notificationProvider</references>
+    <references>nabu.frameworks.notifications.crud.notificationTemplate</references>
+    <references>nabu.frameworks.notifications.crud.notificationTemplateGroup</references>
+    <references>nabu.frameworks.notifications.crud.notificationTemplateOption</references>
+</node>

@@ -1,0 +1,7 @@
+<structure collectionName="notificationPreferences" name="notificationPreference">
+    <field name="id" pattern="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|[0-9a-fA-F]{32}" primaryKey="true" type="java.util.UUID"/>
+    <field comment="You can set a preference for a certain template or all templates" foreignKey="nabu.frameworks.notifications.database.types.notificationTemplateGroup:id" minOccurs="0" name="notificationTemplateGroupId" pattern="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|[0-9a-fA-F]{32}" type="java.util.UUID"/>
+    <field comment="Indicate the provider you would like for this template or templates. Only relevant for templates that _have_ that provider. Note that you can also make a preference record without a specific provider simply to opt in" foreignKey="nabu.frameworks.notifications.database.types.notificationProvider:id" minOccurs="0" name="notificationProviderId" pattern="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|[0-9a-fA-F]{32}" type="java.util.UUID"/>
+    <field comment="Can be a user, company..." name="recipientId" pattern="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|[0-9a-fA-F]{32}" type="java.util.UUID"/>
+    <field comment="A contextual qualifier for the id, e.g. &quot;user&quot;" name="recipientType" type="java.lang.String"/>
+</structure>

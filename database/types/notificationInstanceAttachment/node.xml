@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<node artifactManager="be.nabu.eai.module.types.structure.StructureManager" created="2024-03-27T09:05:31.938+01:00" lastModified="2024-03-27T13:28:31.141+01:00" leaf="true" version="7">
+    <environmentId>apollo</environmentId>
+    <hidden>false</hidden>
+    <locked>false</locked>
+    <properties/>
+    <references>nabu.frameworks.notifications.specs.attachment</references>
+    <references>java.util.UUID</references>
+    <references>nabu.frameworks.notifications.database.types.notificationInstance</references>
+</node>

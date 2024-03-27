@@ -1,0 +1,1 @@
+<structure allow="recipientId,recipientType,externalState,externalId,externalLink" name="instance" superType="nabu.frameworks.notifications.database.types.notificationInstanceRecipient"/>

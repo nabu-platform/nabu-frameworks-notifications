@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<node artifactManager="be.nabu.eai.module.services.vm.VMServiceManager" created="2024-03-26T08:56:55.640+01:00" lastModified="2024-03-27T13:27:45.529+01:00" leaf="true" version="30">
+    <environmentId>apollo</environmentId>
+    <hidden>false</hidden>
+    <locked>false</locked>
+    <properties/>
+    <references>nabu.frameworks.notifications.specs.recipient</references>
+    <references>nabu.frameworks.notifications.specs.attachment</references>
+    <references>nabu.frameworks.notifications.crud.notificationTemplateGroup.types.output</references>
+    <references>nabu.frameworks.notifications.crud.notificationTemplateGroup.services.get</references>
+    <references>nabu.frameworks.notifications.utils.sendInternal</references>
+    <references>nabu.frameworks.notifications.crud.notificationTemplate.types.output</references>
+    <references>java.lang.Object</references>
+    <references>java.lang.String</references>
+    <references>nabu.frameworks.notifications.crud.notificationTemplate.services.list</references>
+    <references>nabu.frameworks.notifications.crud.notificationPreference.services.list</references>
+    <references>nabu.frameworks.notifications.crud.notificationPreference.types.output</references>
+    <references>nabu.frameworks.notifications.utils.resolveRecipients</references>
+</node>

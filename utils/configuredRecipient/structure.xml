@@ -1,0 +1,5 @@
+<structure name="configuredRecipient" superType="nabu.frameworks.notifications.specs.recipient">
+    <structure collectionName="notificationTemplateOptions" definition="nabu.frameworks.notifications.crud.notificationTemplateOption.types.output" enricher="nabu.frameworks.notifications.crud.notificationTemplateOption.services.list" name="option" persister="nabu.frameworks.notifications.crud.notificationTemplateOption.batch.updateAll"/>
+    <field name="languageChoice" type="java.lang.String"/>
+    <field name="providerChoice" type="java.lang.String"/>
+</structure>

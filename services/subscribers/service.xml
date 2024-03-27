@@ -1,0 +1,144 @@
+<sequence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		disabled="false"
+		id="aafa696755794664aaec860047ae3798"
+		lineNumber="1">
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			disabled="false"
+			id="887fc440efa745239ab6138a9584f46b"
+			lineNumber="2">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="80f59f106a7446d59117f4d387faf301"
+				serviceId="nabu.frameworks.notifications.crud.notificationTemplateGroup.services.list"
+				resultName="result7284270f61b54505b87d43c3ff9fb0c8"
+				temporaryMapping="true"
+				x="218"
+				y="63"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="33c3edb782674919ba72f11d914f30c5"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>input/group</from>
+				<to>filter/name[0]</to>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="0b49c959441144ef8c56391f1b71455a"
+				mask="false"
+				optional="false"
+				fixedValue="false">
+			<from>result7284270f61b54505b87d43c3ff9fb0c8/results[0]</from>
+			<to>group</to>
+		</steps>
+	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.Throw"
+			description="=&quot;Unknown group: &quot; + input/group"
+			disabled="false"
+			id="6b9754739324428fb8d73e0df2610616"
+			label="!group"
+			lineNumber="3"
+			message="Unknown group"
+			whitelist="false" xsi:nil="true"/>
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			disabled="false"
+			id="6867f67264724e2e97f81f1eb41aa016"
+			lineNumber="4">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="6c634d596ece4d359fe64f39d491e22c"
+				serviceId="nabu.frameworks.notifications.crud.notificationPreference.services.list"
+				resultName="result6d539f859a124f84ab2c56629b4b4549"
+				temporaryMapping="true"
+				x="243"
+				y="133"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="aed8d171d7c343c1abbecb0e4a5b6f20"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>group/id</from>
+				<to>filter/notificationTemplateGroupId[0]</to>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="6e731a385cd34e849639cf9e5e2ad1dc"
+				mask="false"
+				optional="false"
+				fixedValue="false">
+			<from>result6d539f859a124f84ab2c56629b4b4549/results</from>
+			<to>subscriptions</to>
+		</steps>
+	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.For"
+			disabled="false"
+			id="47e1df5bd0ff4d109817fad52ac9fb7c"
+			lineNumber="5"
+			variable="subscription"
+			into="output/recipients">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+				disabled="false"
+				id="0494bf1d1f3c41a684eb6639c67d1cb5"
+				lineNumber="6">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+					disabled="false"
+					id="60d23e79705840778a2228cf04bce200"
+					serviceId="nabu.utils.String.join"
+					resultName="result4929acb1ad844810b9732a6faf21c93c"
+					temporaryMapping="true"
+					x="278"
+					y="129"
+					invocationOrder="0"
+					asynchronous="false"
+					recache="false">
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="467229aadaf7409e851d0e48c7e3d494"
+						mask="false"
+						optional="false"
+						fixedValue="false">
+					<from>subscription/recipientId</from>
+					<to>parts[1]</to>
+				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="afe7e10616f64070a9d2540da4586d65"
+						mask="false"
+						optional="false"
+						fixedValue="false">
+					<from>subscription/recipientType</from>
+					<to>parts[0]</to>
+				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="ea1375c8a6ab48fb96c4477a430ea55e"
+						mask="false"
+						optional="false"
+						fixedValue="true">
+					<from>:</from>
+					<to>separator</to>
+				</steps>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="be31d803ee16454fa3362432c826a37e"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>result4929acb1ad844810b9732a6faf21c93c/string</from>
+				<to>output/recipients[0]</to>
+			</steps>
+		</steps>
+		<query>subscriptions</query>
+	</steps>
+</sequence>

@@ -1,0 +1,7 @@
+<structure collectionName="notificationTemplateOptions" name="notificationTemplateOption">
+    <field name="id" pattern="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|[0-9a-fA-F]{32}" type="java.util.UUID"/>
+    <field comment="You have a specific template" foreignKey="nabu.frameworks.notifications.database.types.notificationTemplate:id" name="notificationTemplateId" pattern="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|[0-9a-fA-F]{32}" type="java.util.UUID"/>
+    <field comment="That you send via a specific provider" foreignKey="nabu.frameworks.notifications.database.types.notificationProvider:id" name="notificationProviderId" pattern="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|[0-9a-fA-F]{32}" type="java.util.UUID"/>
+    <field comment="You can optionally fill in a language if you want to differentiate between ids" minOccurs="0" name="language" type="java.lang.String"/>
+    <field comment="Configuration for the provider, specific for this template option. For example for sms providers you may want to hardcode the template here." minOccurs="0" name="properties" type="java.lang.String"/>
+</structure>

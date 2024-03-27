@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<webModule>
+    <webFragments>nabu.frameworks.notifications.crud.notificationInstance</webFragments>
+    <webFragments>nabu.frameworks.notifications.crud.notificationInstanceAttachment</webFragments>
+    <webFragments>nabu.frameworks.notifications.crud.notificationInstanceRecipient</webFragments>
+    <webFragments>nabu.frameworks.notifications.crud.notificationPreference</webFragments>
+    <webFragments>nabu.frameworks.notifications.crud.notificationProvider</webFragments>
+    <webFragments>nabu.frameworks.notifications.crud.notificationTemplate</webFragments>
+    <webFragments>nabu.frameworks.notifications.crud.notificationTemplateGroup</webFragments>
+    <webFragments>nabu.frameworks.notifications.crud.notificationTemplateOption</webFragments>
+</webModule>

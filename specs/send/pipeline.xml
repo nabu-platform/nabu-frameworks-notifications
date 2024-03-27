@@ -1,0 +1,14 @@
+<structure name="pipeline">
+    <structure name="input">
+        <field name="template" type="java.lang.String"/>
+        <field minOccurs="0" name="language" type="java.lang.String"/>
+        <structure definition="nabu.frameworks.notifications.specs.recipient" maxOccurs="unbounded" minOccurs="0" name="recipients"/>
+        <structure collectionCrudProvider="odata" collectionName="teamsTemplates" definition="java.lang.Object" minOccurs="0" name="variables"/>
+        <structure collectionCrudProvider="odata" collectionName="teamsTemplates" definition="java.lang.Object" minOccurs="0" name="properties"/>
+        <structure definition="nabu.frameworks.notifications.specs.attachment" maxOccurs="unbounded" minOccurs="0" name="attachments"/>
+    </structure>
+    <structure name="output">
+        <structure allow="recipientId,recipientType,externalState,externalId,externalLink" comment="The instances created by the provider depending on batching capabilities in the case of multiple recipients" definition="nabu.frameworks.notifications.specs.instance" maxOccurs="unbounded" minOccurs="0" name="instances"/>
+        <structure definition="nabu.frameworks.notifications.specs.failedRecipient" maxOccurs="unbounded" minOccurs="0" name="failed"/>
+    </structure>
+</structure>

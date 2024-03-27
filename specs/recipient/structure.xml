@@ -1,0 +1,8 @@
+<structure name="recipient">
+    <field comment="Each recipient has an identifier that can be used" name="id" pattern="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|[0-9a-fA-F]{32}" type="java.util.UUID"/>
+    <field comment="The type of id that it is" name="type" type="java.lang.String"/>
+    <structure definition="nabu.frameworks.notifications.specs.address" maxOccurs="unbounded" minOccurs="0" name="addresses"/>
+    <field comment="primary (=to), secondary (=cc), tertiary (=bcc)" minOccurs="0" name="priority" type="java.lang.String"/>
+    <field minOccurs="0" name="language" type="java.lang.String"/>
+    <field comment="A label for this recipient, in some cases (e.g. mail) it can be added" minOccurs="0" name="label" type="java.lang.String"/>
+</structure>

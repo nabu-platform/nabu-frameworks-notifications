@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<node artifactManager="be.nabu.eai.module.services.crud.CRUDArtifactManager" created="2024-03-27T10:10:55.208+01:00" lastModified="2024-03-27T10:37:06.557+01:00" leaf="false" version="4">
+    <environmentId>apollo</environmentId>
+    <hidden>false</hidden>
+    <locked>false</locked>
+    <properties/>
+    <references>nabu.frameworks.notifications.database.types.notificationPreference</references>
+    <references>nabu.services.crud.provider.basic.provider</references>
+</node>

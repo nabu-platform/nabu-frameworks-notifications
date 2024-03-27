@@ -1,0 +1,10 @@
+<structure name="pipeline">
+    <structure name="input">
+        <field name="group" type="java.lang.String"/>
+    </structure>
+    <structure name="output">
+        <field maxOccurs="unbounded" minOccurs="0" name="recipients" type="java.lang.String"/>
+    </structure>
+    <structure collectionName="notificationTemplateGroups" definition="nabu.frameworks.notifications.crud.notificationTemplateGroup.types.output" enricher="nabu.frameworks.notifications.crud.notificationTemplateGroup.services.list" minOccurs="0" name="group" persister="nabu.frameworks.notifications.crud.notificationTemplateGroup.batch.updateAll"/>
+    <structure collectionName="notificationPreferences" definition="nabu.frameworks.notifications.crud.notificationPreference.types.output" enricher="nabu.frameworks.notifications.crud.notificationPreference.services.list" maxOccurs="unbounded" minOccurs="0" name="subscriptions" persister="nabu.frameworks.notifications.crud.notificationPreference.batch.updateAll"/>
+</structure>

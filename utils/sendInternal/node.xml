@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<node artifactManager="be.nabu.eai.module.services.vm.VMServiceManager" created="2024-03-27T13:27:01.468+01:00" lastModified="2024-03-27T14:30:58.139+01:00" leaf="true" version="90">
+    <environmentId>apollo</environmentId>
+    <hidden>false</hidden>
+    <locked>false</locked>
+    <properties/>
+    <references>nabu.utils.Runtime.summarizeException</references>
+    <references>nabu.utils.Server.uuid</references>
+    <references>nabu.utils.List.unique</references>
+    <references>nabu.frameworks.notifications.specs.send</references>
+    <references>nabu.frameworks.notifications.crud.notificationProvider.types.output</references>
+    <references>nabu.frameworks.notifications.specs.failedRecipient</references>
+    <references>nabu.services.jdbc.Services.insert</references>
+    <references>nabu.frameworks.notifications.specs.attachment</references>
+    <references>nabu.frameworks.notifications.database.types.notificationInstanceAttachment</references>
+    <references>java.lang.String</references>
+    <references>nabu.data.json.Services.marshal</references>
+    <references>nabu.frameworks.notifications.crud.notificationTemplateOption.services.list</references>
+    <references>nabu.frameworks.notifications.crud.notificationPreference.types.output</references>
+    <references>nabu.utils.Stream.toString</references>
+    <references>nabu.frameworks.notifications.specs.recipient</references>
+    <references>nabu.utils.reflection.properties.unmarshalServiceInput</references>
+    <references>nabu.utils.Object.mapByKey</references>
+    <references>nabu.frameworks.notifications.crud.notificationTemplateGroup.types.output</references>
+    <references>nabu.utils.Date.now</references>
+    <references>nabu.frameworks.notifications.crud.notificationTemplate.types.output</references>
+    <references>nabu.web.application.Services.getSessionId</references>
+    <references>nabu.frameworks.notifications.utils.groupedConfiguredRecipient</references>
+    <references>nabu.frameworks.notifications.crud.notificationTemplateOption.types.output</references>
+    <references>nabu.utils.Runtime.getCurrentDevice</references>
+    <references>nabu.frameworks.notifications.utils.configuredRecipient</references>
+    <references>nabu.utils.Server.getServerName</references>
+    <references>nabu.frameworks.notifications.database.types.notificationInstanceRecipient</references>
+    <references>nabu.frameworks.notifications.specs.instance</references>
+    <references>nabu.frameworks.notifications.database.types.notificationInstance</references>
+    <references>nabu.utils.Object.first</references>
+    <references>nabu.frameworks.notifications.crud.notificationProvider.services.list</references>
+    <references>nabu.utils.Runtime.getCorrelationId</references>
+    <references>java.lang.Object</references>
+    <references>nabu.utils.List.group</references>
+</node>

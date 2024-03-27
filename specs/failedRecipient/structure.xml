@@ -1,0 +1,4 @@
+<structure name="failedRecipient" superType="nabu.frameworks.notifications.specs.recipient">
+    <field minOccurs="0" name="errorLog" type="java.lang.String"/>
+    <field minOccurs="0" name="errorCode" type="java.lang.String"/>
+</structure>

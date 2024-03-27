@@ -1,0 +1,20 @@
+<structure collectionName="notificationInstances" name="notificationInstance">
+    <field name="id" pattern="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|[0-9a-fA-F]{32}" primaryKey="true" type="java.util.UUID"/>
+    <field name="started" timezone="UTC" type="java.util.Date"/>
+    <field minOccurs="0" name="stopped" timezone="UTC" type="java.util.Date"/>
+    <field foreignKey="nabu.frameworks.notifications.database.types.notificationTemplate:id" name="notificationTemplateId" pattern="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|[0-9a-fA-F]{32}" type="java.util.UUID"/>
+    <field foreignKey="nabu.frameworks.notifications.database.types.notificationProvider:id" name="notificationProviderId" pattern="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|[0-9a-fA-F]{32}" type="java.util.UUID"/>
+    <field minOccurs="0" name="language" type="java.lang.String"/>
+    <field identifiable="true" minOccurs="0" name="variables" type="java.lang.String"/>
+    <field comment="Capture any properties specific to this template (not the provider level properties)" identifiable="true" minOccurs="0" name="properties" type="java.lang.String"/>
+    <field minOccurs="0" name="correlationId" type="java.lang.String"/>
+    <field minOccurs="0" name="contextId" type="java.lang.String"/>
+    <field minOccurs="0" name="groupId" type="java.lang.String"/>
+    <field minOccurs="0" name="server" type="java.lang.String"/>
+    <field minOccurs="0" name="sessionId" type="java.lang.String"/>
+    <field minOccurs="0" name="deviceId" type="java.lang.String"/>
+    <field comment="If you resend a notification, a new one will be created linked to the old one" foreignKey="nabu.frameworks.notifications.database.types.notificationInstance:id" minOccurs="0" name="parentId" pattern="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|[0-9a-fA-F]{32}" type="java.util.UUID"/>
+    <field comment="SUCCEEDED, ERROR or FAILED, only set to succeeded if every recipient was successful" name="state" type="java.lang.String"/>
+    <field comment="Only available in case of exceptions" minOccurs="0" name="errorLog" type="java.lang.String"/>
+    <field comment="Only available in case of exceptions" minOccurs="0" name="errorCode" type="java.lang.String"/>
+</structure>

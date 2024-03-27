@@ -1,0 +1,264 @@
+<sequence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		disabled="false"
+		id="9121f22ac6ac47bfa3f16c08ac063ef2"
+		lineNumber="1">
+	<steps xsi:type="be.nabu.libs.services.vm.step.For"
+			disabled="false"
+			id="8ba8cf6ced3f439095a6193d16a6e792"
+			lineNumber="2"
+			variable="recipient"
+			into="output/recipients">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+				disabled="false"
+				id="0de6bd8c27074a8881751dda8e6bafd1"
+				lineNumber="3">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+					disabled="false"
+					id="5574b33a37a84d98b0e3dacb10a1cc58"
+					serviceId="nabu.utils.String.split"
+					resultName="result9474eb84e4d94ecb995beda11d6b92f3"
+					temporaryMapping="true"
+					x="85"
+					y="103"
+					invocationOrder="0"
+					asynchronous="false"
+					recache="false">
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="740ebdc4e03844f184627e48f7dc5ed6"
+						mask="false"
+						optional="false"
+						fixedValue="false">
+					<from>recipient</from>
+					<to>string</to>
+				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="7b5185a1e5cd4c0691ccd87e5af4b44f"
+						mask="false"
+						optional="false"
+						fixedValue="true">
+					<from>:</from>
+					<to>separator</to>
+				</steps>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="0122d064cf6b4ee3992f691d67d670f1"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>result9474eb84e4d94ecb995beda11d6b92f3/parts</from>
+				<to>parts</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+					disabled="false"
+					id="8e9de1b91adc4a3b8719c409e5af2f88"
+					serviceId="nabu.utils.List.size"
+					resultName="resulta738c21dca184d1fa03b36b72c982626"
+					temporaryMapping="true"
+					x="522"
+					y="281"
+					invocationOrder="1"
+					asynchronous="false"
+					recache="false">
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="c3a28d9217244ff39e19feb295ec9991"
+						mask="false"
+						optional="false"
+						fixedValue="false">
+					<from>result9474eb84e4d94ecb995beda11d6b92f3/parts</from>
+					<to>list</to>
+				</steps>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="1540f762c20449e68d961c623e2ab24f"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>resulta738c21dca184d1fa03b36b72c982626/size</from>
+				<to>amountOfParts</to>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Switch"
+				disabled="false"
+				id="b3daa437ab034fbe9cd000a5e3339f4f"
+				lineNumber="4"
+				query="amountOfParts">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+					comment="You have a context, use that"
+					disabled="false"
+					id="357d165b709c48c891cc9bb339d221e3"
+					label="2"
+					lineNumber="5">
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="bd560581e8024383ac98778b1c52b57f"
+						mask="false"
+						optional="false"
+						fixedValue="false">
+					<from>parts[0]</from>
+					<to>recipientContext</to>
+				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="893455a043634c089a310155bd73ae89"
+						mask="false"
+						optional="false"
+						fixedValue="false">
+					<from>parts[1]</from>
+					<to>recipient</to>
+				</steps>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+					comment="By default we assume &quot;user&quot;"
+					disabled="false"
+					id="77a7e683dfc04f188d21a5a42dc618d0"
+					lineNumber="6">
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="a3a15d0e64634d3bbcea7914c38b4011"
+						mask="false"
+						optional="false"
+						fixedValue="true">
+					<from>user</from>
+					<to>recipientContext</to>
+				</steps>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+				disabled="false"
+				id="b72841a1c4cd42a69d19047827e90c07"
+				lineNumber="7">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+					disabled="false"
+					id="76275dc4e71147ddbbe9766d0257f70d"
+					serviceId="nabu.utils.reflection.Service.listImplementations"
+					resultName="result37da08409cff4bd79e48daa4217fcdc1"
+					temporaryMapping="true"
+					x="341"
+					y="72"
+					invocationOrder="0"
+					asynchronous="false"
+					recache="false">
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="824e9b72d4224c4f8b752a1f1afbc65f"
+						mask="false"
+						optional="false"
+						fixedValue="true">
+					<from>nabu.frameworks.notifications.specs.resolveRecipient</from>
+					<to>interfaceId</to>
+				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="6a6260ba8d144b3e80fd4e641a67da6b"
+						mask="false"
+						optional="false"
+						fixedValue="true">
+					<from>context</from>
+					<to>properties[0]/key</to>
+				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="ae90fe0aba064c11882bba192467c1e4"
+						mask="false"
+						optional="false"
+						fixedValue="false">
+					<from>recipientContext</from>
+					<to>properties[0]/value</to>
+				</steps>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="9b07d18f7c244fdeb46d816ff69b88dc"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>result37da08409cff4bd79e48daa4217fcdc1/implementations[0]</from>
+				<to>implementation</to>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Throw"
+				description="=&quot;Can not find recipient resolver for context: &quot; + parts[0]"
+				disabled="false"
+				id="767a4e6c202d420785a5ad0442c36c4f"
+				label="!implementation"
+				lineNumber="8"
+				message="Can not find recipient resolver"
+				whitelist="false" xsi:nil="true"/>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+				disabled="false"
+				id="9c29900b31af45a293f776c482fb3a29"
+				lineNumber="9">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+					disabled="false"
+					id="cf00ff9b268847f3a3daa02697aaa882"
+					serviceId="nabu.frameworks.notifications.specs.resolveRecipient"
+					resultName="resultd030d494fee64d41aa167691cd84c1c5"
+					temporaryMapping="true"
+					x="250"
+					y="50"
+					invocationOrder="0"
+					asynchronous="false"
+					recache="false">
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="7a5d5d11b5b14f6885cf3f8e9d7ba328"
+						mask="false"
+						optional="false"
+						fixedValue="false">
+					<from>input/group</from>
+					<to>group</to>
+				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="997cc2b34d5744ea9adb9103ab874f6e"
+						mask="false"
+						optional="false"
+						fixedValue="false">
+					<from>input/template</from>
+					<to>template</to>
+				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="9ca09786f4774911ad5dc469ee4ea3b6"
+						mask="false"
+						optional="false"
+						fixedValue="false">
+					<from>parts[1]</from>
+					<to>recipient</to>
+				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="4fe63d28f63d412d96dc03b437d218d6"
+						mask="false"
+						optional="false"
+						fixedValue="false">
+					<from>implementation/id</from>
+					<to>implementationId</to>
+				</steps>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="c8b97965f9684e998f984371464fedd9"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>resultd030d494fee64d41aa167691cd84c1c5/recipient</from>
+				<to>output/recipients[0]</to>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Throw"
+				description="=&quot;Could not resolve recipient: &quot; + recipientContext + &quot;:&quot; + recipient"
+				disabled="false"
+				id="516a364c618442b4bb0f291e49d9da65"
+				label="!output/recipients"
+				lineNumber="10"
+				message="Could not resolve recipient"
+				whitelist="false" xsi:nil="true"/>
+		<query>input/recipients</query>
+	</steps>
+</sequence>
