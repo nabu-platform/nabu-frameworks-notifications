@@ -1,0 +1,10 @@
+<structure name="pipeline">
+    <structure name="input"/>
+    <structure name="output"/>
+    <field name="interrupted" type="java.lang.Boolean"/>
+    <field maxOccurs="unbounded" name="connectionIds" type="java.lang.String"/>
+    <structure collectionName="notificationInstanceRecipients" definition="nabu.frameworks.notifications.crud.notificationInstanceRecipient.types.outputForStateCheck" maxOccurs="unbounded" minOccurs="0" name="nonFinalRecipients"/>
+    <field minOccurs="0" name="now" type="java.util.Date"/>
+    <structure collectionCrudProvider="odata" collectionName="teamsTemplates" definition="java.lang.Object" minOccurs="0" name="providerProperties"/>
+    <structure collectionCrudProvider="odata" collectionName="teamsTemplates" definition="java.lang.Object" minOccurs="0" name="templateProperties"/>
+</structure>

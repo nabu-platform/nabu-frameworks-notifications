@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<node artifactManager="be.nabu.eai.module.services.vm.VMServiceManager" created="2024-03-27T13:27:01.468+01:00" lastModified="2024-03-27T16:49:00.627+01:00" leaf="true" version="111">
+<node artifactManager="be.nabu.eai.module.services.vm.VMServiceManager" created="2024-03-27T13:27:01.468+01:00" lastModified="2024-03-29T11:50:44.723+01:00" leaf="true" version="140">
     <environmentId>apollo</environmentId>
     <hidden>false</hidden>
     <locked>false</locked>
@@ -28,6 +28,7 @@
     <references>nabu.frameworks.notifications.crud.notificationTemplate.types.output</references>
     <references>nabu.web.application.Services.getSessionId</references>
     <references>nabu.frameworks.notifications.utils.groupedConfiguredRecipient</references>
+    <references>java.util.UUID</references>
     <references>nabu.frameworks.notifications.crud.notificationTemplateOption.types.output</references>
     <references>nabu.utils.Runtime.getCurrentDevice</references>
     <references>nabu.frameworks.notifications.utils.configuredRecipient</references>

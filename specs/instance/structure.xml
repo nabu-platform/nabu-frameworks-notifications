@@ -1,1 +1,3 @@
-<structure allow="recipientId,recipientType,externalState,externalId,externalLink" name="instance" superType="nabu.frameworks.notifications.database.types.notificationInstanceRecipient"/>
+<structure allow="recipientId,recipientType,externalState,externalId,externalLink,externalStateFinal" name="instance" superType="nabu.frameworks.notifications.database.types.notificationInstanceRecipient">
+    <structure comment="The address that was used, we presume there was one" definition="nabu.frameworks.notifications.specs.address" minOccurs="0" name="address"/>
+</structure>

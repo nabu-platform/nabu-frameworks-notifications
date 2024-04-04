@@ -126,6 +126,15 @@
 					<from>user</from>
 					<to>recipientContext</to>
 				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="b81790a7474e41fca0909314b06e3a8e"
+						mask="false"
+						optional="false"
+						fixedValue="false">
+					<from>parts[0]</from>
+					<to>recipient</to>
+				</steps>
 			</steps>
 		</steps>
 		<steps xsi:type="be.nabu.libs.services.vm.step.Map"
@@ -224,21 +233,21 @@
 				</steps>
 				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
 						disabled="false"
-						id="9ca09786f4774911ad5dc469ee4ea3b6"
-						mask="false"
-						optional="false"
-						fixedValue="false">
-					<from>parts[1]</from>
-					<to>recipient</to>
-				</steps>
-				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-						disabled="false"
 						id="4fe63d28f63d412d96dc03b437d218d6"
 						mask="false"
 						optional="false"
 						fixedValue="false">
 					<from>implementation/id</from>
 					<to>implementationId</to>
+				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="67efb3e4640642a9af4b9713a3d59312"
+						mask="false"
+						optional="false"
+						fixedValue="false">
+					<from>recipient</from>
+					<to>recipient</to>
 				</steps>
 			</steps>
 			<steps xsi:type="be.nabu.libs.services.vm.step.Link"

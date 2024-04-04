@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<node artifactManager="be.nabu.eai.module.types.structure.StructureManager" created="2024-03-27T13:55:11.681+01:00" lastModified="2024-03-27T13:55:30.656+01:00" leaf="true" version="3">
+<node artifactManager="be.nabu.eai.module.types.structure.StructureManager" created="2024-03-27T13:55:11.681+01:00" lastModified="2024-03-28T13:52:55.489+01:00" leaf="true" version="4">
     <environmentId>apollo</environmentId>
     <hidden>false</hidden>
     <locked>false</locked>
     <properties/>
-    <references>nabu.frameworks.notifications.crud.notificationTemplateOption.types.output</references>
+    <references>java.util.UUID</references>
     <references>nabu.frameworks.notifications.utils.configuredRecipient</references>
 </node>

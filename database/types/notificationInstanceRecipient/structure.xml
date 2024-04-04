@@ -8,5 +8,14 @@
     <field comment="Internal state: SUCCEEDED, FAILED" name="state" type="java.lang.String"/>
     <field minOccurs="0" name="externalId" type="java.lang.String"/>
     <field comment="External state as communicated by the provider" minOccurs="0" name="externalState" type="java.lang.String"/>
+    <field comment="Whether or not the external state is final. It will not be refreshed once final" name="externalStateFinal" type="java.lang.Boolean"/>
     <field comment="Some systems have an external link where you can check out the notification that was sent" minOccurs="0" name="externalLink" type="java.net.URI"/>
+    <field minOccurs="0" name="languageChoice" type="java.lang.String"/>
+    <field minOccurs="0" name="providerChoice" type="java.lang.String"/>
+    <field comment="The actual address, could be an email, phone number, twitter handle,.." minOccurs="0" name="address" type="java.lang.String"/>
+    <field comment="The actual address, could be an email, phone number, twitter handle,.." minOccurs="0" name="addressType" type="java.lang.String"/>
+    <field comment="The actual address, could be an email, phone number, twitter handle,.." minOccurs="0" name="addressUsage" type="java.lang.String"/>
+    <field minOccurs="0" name="label" type="java.lang.String"/>
+    <field comment="primary (=to), secondary (=cc), tertiary (=bcc)" minOccurs="0" name="priority" type="java.lang.String"/>
+    <field comment="When was the state last checked?" minOccurs="0" name="lastExternalStateCheck" timezone="UTC" type="java.util.Date"/>
 </structure>

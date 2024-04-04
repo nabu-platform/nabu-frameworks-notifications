@@ -1,9 +1,12 @@
 <structure comment="A provider can optionally implement a service to check the state of a particular item" name="pipeline">
     <structure name="input">
-        <field name="templateInstanceId" pattern="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|[0-9a-fA-F]{32}" type="java.util.UUID"/>
+        <field minOccurs="0" name="connectionId" type="java.lang.String"/>
+        <field name="notificationInstanceRecipientId" pattern="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|[0-9a-fA-F]{32}" type="java.util.UUID"/>
         <field name="externalId" type="java.lang.String"/>
+        <structure collectionCrudProvider="odata" collectionName="teamsTemplates" definition="java.lang.Object" minOccurs="0" name="properties"/>
     </structure>
     <structure name="output">
         <field name="state" type="java.lang.String"/>
+        <field comment="Whether or not this is a final state" name="final" type="java.lang.Boolean"/>
     </structure>
 </structure>

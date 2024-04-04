@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<node artifactManager="be.nabu.eai.module.services.vm.VMServiceManager" created="2024-03-29T10:20:11.384+01:00" lastModified="2024-03-29T11:46:21.066+01:00" leaf="true" version="26">
+    <environmentId>apollo</environmentId>
+    <hidden>false</hidden>
+    <locked>false</locked>
+    <properties/>
+    <references>nabu.frameworks.notifications.crud.notificationInstanceRecipient.services.listForStateCheck</references>
+    <references>nabu.utils.reflection.properties.unmarshalServiceInput</references>
+    <references>nabu.utils.Object.mapByKey</references>
+    <references>java.util.Date</references>
+    <references>nabu.utils.Date.now</references>
+    <references>nabu.frameworks.notifications.startup.getSupportedConnections</references>
+    <references>nabu.frameworks.notifications.specs.checkState</references>
+    <references>nabu.services.jdbc.Services.update</references>
+    <references>nabu.utils.Runtime.interrupted</references>
+    <references>java.lang.Boolean</references>
+    <references>java.lang.Object</references>
+    <references>java.lang.String</references>
+    <references>nabu.utils.Server.sleep</references>
+    <references>nabu.frameworks.notifications.crud.notificationInstanceRecipient.types.outputForStateCheck</references>
+</node>
