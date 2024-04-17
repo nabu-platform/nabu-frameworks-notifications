@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<node artifactManager="be.nabu.eai.module.services.vm.VMServiceManager" created="2024-01-18T09:11:12.530+01:00" lastModified="2024-03-28T12:53:07.259+01:00" leaf="true" version="23">
+<node artifactManager="be.nabu.eai.module.services.vm.VMServiceManager" created="2024-01-18T09:11:12.530+01:00" lastModified="2024-04-17T18:01:01.298+02:00" leaf="true" version="24">
     <environmentId>apollo</environmentId>
     <hidden>false</hidden>
     <locked>false</locked>
@@ -7,6 +7,7 @@
     <references>nabu.frameworks.notifications.specs.recipient</references>
     <references>nabu.utils.List.size</references>
     <references>nabu.frameworks.notifications.specs.resolveRecipient</references>
+    <references>java.lang.Boolean</references>
     <references>nabu.utils.reflection.Service.listImplementations</references>
     <references>java.lang.String</references>
     <references>java.lang.Integer</references>

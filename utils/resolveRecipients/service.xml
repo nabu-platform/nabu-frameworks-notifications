@@ -249,6 +249,15 @@
 					<from>recipient</from>
 					<to>recipient</to>
 				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="3e34f1e3d98b46b49d7ca1d197ca3cc1"
+						mask="false"
+						optional="false"
+						fixedValue="false">
+					<from>input/allowUnverified</from>
+					<to>allowUnverified</to>
+				</steps>
 			</steps>
 			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
 					disabled="false"

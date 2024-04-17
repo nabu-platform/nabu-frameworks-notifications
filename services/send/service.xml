@@ -4,8 +4,23 @@
 		lineNumber="1">
 	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 			disabled="false"
-			id="9d44054e9b0a47b18e378c8b896006d3"
+			id="4d277edf210749efb4323e1cdc905681"
+			label="input/allowUnverified == null"
 			lineNumber="2">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="7662c000391c459bacb02fed5cfd78a2"
+				mask="false"
+				optional="false"
+				fixedValue="true">
+			<from>true</from>
+			<to>input/allowUnverified</to>
+		</steps>
+	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			disabled="false"
+			id="9d44054e9b0a47b18e378c8b896006d3"
+			lineNumber="3">
 		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 				disabled="false"
 				id="ce7150be21e14ae9864fdaca071f055f"
@@ -42,13 +57,13 @@
 			disabled="false"
 			id="7228a1fff2ce4641b1e5505251fea236"
 			label="!template"
-			lineNumber="3"
+			lineNumber="4"
 			message="Template not found"
 			whitelist="false" xsi:nil="true"/>
 	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 			disabled="false"
 			id="99742e79a7954c149f6b46e24818e430"
-			lineNumber="4">
+			lineNumber="5">
 		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 				disabled="false"
 				id="089a2c9bb1334266a078d7e9a2b7858d"
@@ -83,7 +98,7 @@
 	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 			disabled="false"
 			id="819fc83dd0eb4258a960245f789199cb"
-			lineNumber="5">
+			lineNumber="6">
 		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 				disabled="false"
 				id="379f51f9f09042668db942218b88e0b6"
@@ -122,6 +137,15 @@
 				<from>input/recipients</from>
 				<to>recipients</to>
 			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="8efa86177a55471680779d1aa5dbc7f8"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>input/allowUnverified</from>
+				<to>allowUnverified</to>
+			</steps>
 		</steps>
 		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
 				disabled="false"
@@ -137,7 +161,7 @@
 			disabled="false"
 			id="3b0a77de844645d6b4fecb0866c5b2a5"
 			label="recipients"
-			lineNumber="6">
+			lineNumber="7">
 		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 				disabled="false"
 				id="c8ce7f7eacb8425b891093435315466d"
@@ -243,7 +267,7 @@
 			disabled="false"
 			id="9b95dd4e0c1e40d7aa14d509a17de261"
 			label="group/optional"
-			lineNumber="7">
+			lineNumber="8">
 		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
 				disabled="false"
 				id="22ef430b1b40488ab395d1879cdffe79"
@@ -259,13 +283,13 @@
 			disabled="false"
 			id="2d086d82f6c3464899ab403c5d52102a"
 			label="!recipients"
-			lineNumber="8">
+			lineNumber="9">
 		<count>1</count>
 	</steps>
 	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 			disabled="false"
 			id="f4672f6563494e329448700314f59e90"
-			lineNumber="9">
+			lineNumber="10">
 		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 				disabled="false"
 				id="7d9e1f6306f94ddbaccdcd291fa6f24f"

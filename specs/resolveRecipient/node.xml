@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<node artifactManager="be.nabu.eai.module.services.iface.ServiceInterfaceManager" created="2024-03-26T18:10:14.967+01:00" lastModified="2024-03-27T10:32:33.261+01:00" leaf="true" version="14">
+<node artifactManager="be.nabu.eai.module.services.iface.ServiceInterfaceManager" created="2024-03-26T18:10:14.967+01:00" lastModified="2024-04-17T17:41:18.948+02:00" leaf="true" version="15">
     <environmentId>apollo</environmentId>
     <hidden>false</hidden>
     <locked>false</locked>
     <properties/>
     <references>java.lang.String</references>
+    <references>java.lang.Boolean</references>
     <references>nabu.frameworks.notifications.specs.recipient</references>
 </node>

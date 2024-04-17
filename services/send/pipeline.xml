@@ -2,11 +2,12 @@
     <structure name="input">
         <field name="template" type="java.lang.String"/>
         <field comment="Uuids (or contextualized identifiers) of the targets" maxOccurs="unbounded" name="recipients" type="java.lang.String"/>
-        <structure collectionCrudProvider="odata" collectionName="teamsTemplates" definition="java.lang.Object" minOccurs="0" name="variables"/>
+        <structure collectionName="teamsTemplates" definition="java.lang.Object" minOccurs="0" name="variables"/>
         <field comment="The language you want to mandate for this communication. If left open, it will fall back on recipient preference and/or defaults" minOccurs="0" name="language" type="java.lang.String"/>
         <structure definition="nabu.frameworks.notifications.specs.attachment" maxOccurs="unbounded" minOccurs="0" name="attachments"/>
         <field minOccurs="0" name="contextId" type="java.lang.String"/>
         <field minOccurs="0" name="groupId" type="java.lang.String"/>
+        <field minOccurs="0" name="allowUnverified" type="java.lang.Boolean"/>
     </structure>
     <structure name="output"/>
     <structure collectionName="notificationTemplates" definition="nabu.frameworks.notifications.crud.notificationTemplate.types.output" enricher="nabu.frameworks.notifications.crud.notificationTemplate.services.list" minOccurs="0" name="template" persister="nabu.frameworks.notifications.crud.notificationTemplate.batch.updateAll"/>
