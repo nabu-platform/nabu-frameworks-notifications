@@ -9,8 +9,11 @@
         <structure definition="nabu.frameworks.notifications.specs.attachment" maxOccurs="unbounded" minOccurs="0" name="attachments"/>
         <field minOccurs="0" name="contextId" type="java.lang.String"/>
         <field minOccurs="0" name="groupId" type="java.lang.String"/>
+        <field name="batchId" pattern="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|[0-9a-fA-F]{32}" type="java.util.UUID"/>
     </structure>
-    <structure name="output"/>
+    <structure name="output">
+        <structure collectionName="notificationInstances" definition="nabu.frameworks.notifications.database.types.notificationInstance" maxOccurs="unbounded" minOccurs="0" name="notificationInstances"/>
+    </structure>
     <structure definition="nabu.frameworks.notifications.utils.configuredRecipient" maxOccurs="unbounded" minOccurs="0" name="configuredRecipients"/>
     <structure collectionName="notificationPreferences" definition="nabu.frameworks.notifications.crud.notificationPreference.types.output" enricher="nabu.frameworks.notifications.crud.notificationPreference.services.list" minOccurs="0" name="preference" persister="nabu.frameworks.notifications.crud.notificationPreference.batch.updateAll"/>
     <structure collectionName="notificationTemplateOptions" definition="nabu.frameworks.notifications.crud.notificationTemplateOption.types.output" enricher="nabu.frameworks.notifications.crud.notificationTemplateOption.services.list" maxOccurs="unbounded" minOccurs="0" name="options" persister="nabu.frameworks.notifications.crud.notificationTemplateOption.batch.updateAll"/>
@@ -34,5 +37,4 @@
     <field minOccurs="0" name="amountOfPreferences" type="java.lang.Integer"/>
     <structure collectionName="notificationTemplateOptions" definition="nabu.frameworks.notifications.crud.notificationTemplateOption.types.output" enricher="nabu.frameworks.notifications.crud.notificationTemplateOption.services.list" name="currentOption" persister="nabu.frameworks.notifications.crud.notificationTemplateOption.batch.updateAll"/>
     <structure definition="nabu.frameworks.notifications.utils.configuredRecipient" minOccurs="0" name="enrichedRecipient"/>
-    <field comment="Notifications can be sent in batch because they are grouped by the options" name="batchId" pattern="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|[0-9a-fA-F]{32}" type="java.util.UUID"/>
 </structure>

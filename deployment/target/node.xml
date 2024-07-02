@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<node artifactManager="be.nabu.eai.module.services.vm.VMServiceManager" created="2024-05-14T12:21:40.550+02:00" lastModified="2024-05-30T14:39:01.329+02:00" leaf="true" version="6">
+    <environmentId>apollo</environmentId>
+    <hidden>false</hidden>
+    <locked>false</locked>
+    <properties/>
+    <references>nabu.frameworks.notifications.deployment.templateGroupDeployment</references>
+    <references>nabu.services.jdbc.Services.merge</references>
+    <references>java.lang.String</references>
+    <references>nabu.frameworks.notifications.deployment.templateDeployment</references>
+</node>

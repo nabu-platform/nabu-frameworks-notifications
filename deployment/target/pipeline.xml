@@ -1,0 +1,8 @@
+<structure name="pipeline">
+    <structure name="input">
+        <field name="connectionId" type="java.lang.String"/>
+        <structure definition="nabu.frameworks.notifications.deployment.templateGroupDeployment" maxOccurs="unbounded" minOccurs="0" name="templateGroups" restrict="defaultProviderId"/>
+        <structure definition="nabu.frameworks.notifications.deployment.templateDeployment" maxOccurs="unbounded" minOccurs="0" name="templates" restrict="defaultProviderId"/>
+    </structure>
+    <structure name="output"/>
+</structure>

@@ -1,0 +1,5 @@
+<structure name="smtpProperties">
+    <field name="smtpClientId" type="java.lang.String"/>
+    <field minOccurs="0" name="whitelistedDomains" type="java.lang.String"/>
+    <field minOccurs="0" name="override" type="java.lang.String"/>
+</structure>

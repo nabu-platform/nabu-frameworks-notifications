@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <webModule>
+    <path>/notification</path>
     <webFragments>nabu.frameworks.notifications.crud.notificationInstance</webFragments>
     <webFragments>nabu.frameworks.notifications.crud.notificationInstanceAttachment</webFragments>
     <webFragments>nabu.frameworks.notifications.crud.notificationInstanceRecipient</webFragments>

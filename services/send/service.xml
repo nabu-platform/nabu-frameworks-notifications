@@ -296,9 +296,9 @@
 				serviceId="nabu.frameworks.notifications.utils.sendInternal"
 				resultName="result50048be0d6c542b7a301fbea3e20b9b3"
 				temporaryMapping="true"
-				x="181"
-				y="82"
-				invocationOrder="0"
+				x="497"
+				y="87"
+				invocationOrder="1"
 				asynchronous="false"
 				recache="false">
 			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
@@ -382,6 +382,54 @@
 				<from>preferences[notificationProviderId != null]</from>
 				<to>preferences</to>
 			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="7caeee70450e416399399e10b3baead5"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>result3ef2a4f127e8446f8a2066c024a21825/uuid</from>
+				<to>batchId</to>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="acb7995227db46c8a47852201869a66b"
+				mask="false"
+				optional="false"
+				fixedValue="false">
+			<from>result50048be0d6c542b7a301fbea3e20b9b3/notificationInstances[state != "ERROR"]</from>
+			<to>output/successful</to>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="eebbd175752d487d959c90c2fcb2af08"
+				mask="false"
+				optional="false"
+				fixedValue="false">
+			<from>result50048be0d6c542b7a301fbea3e20b9b3/notificationInstances[state == "ERROR"]</from>
+			<to>output/failed</to>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="3b868e1a609940669e4e36772c3c53a3"
+				serviceId="nabu.utils.Server.uuid"
+				resultName="result3ef2a4f127e8446f8a2066c024a21825"
+				temporaryMapping="true"
+				x="49"
+				y="234"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="befcf2e41c0c4dcba9503423541c8a21"
+				mask="false"
+				optional="false"
+				fixedValue="false">
+			<from>result3ef2a4f127e8446f8a2066c024a21825/uuid</from>
+			<to>output/batchId</to>
 		</steps>
 	</steps>
 </sequence>

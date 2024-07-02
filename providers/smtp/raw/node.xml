@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<node artifactManager="be.nabu.eai.module.services.vm.VMServiceManager" created="2024-05-23T09:23:40.959+02:00" lastModified="2024-05-23T09:49:56.108+02:00" leaf="true" version="13">
+    <environmentId>apollo</environmentId>
+    <hidden>false</hidden>
+    <locked>false</locked>
+    <properties/>
+    <references>nabu.frameworks.notifications.specs.recipient</references>
+    <references>be.nabu.utils.mime.api.Part</references>
+    <references>nabu.frameworks.notifications.specs.address</references>
+    <references>nabu.frameworks.notifications.specs.send</references>
+    <references>nabu.protocols.smtp.client.Services.send</references>
+    <references>nabu.frameworks.notifications.specs.failedRecipient</references>
+    <references>nabu.frameworks.notifications.specs.attachment</references>
+    <references>nabu.frameworks.notifications.specs.instance</references>
+    <references>nabu.protocols.smtp.client.Services.newEmailPart</references>
+    <references>nabu.utils.Object.first</references>
+    <references>java.lang.Object</references>
+    <references>java.lang.String</references>
+    <references>nabu.data.json.Services.marshal</references>
+    <references>nabu.utils.String.split</references>
+    <references>nabu.frameworks.notifications.providers.smtp.rewriteAddress</references>
+    <references>nabu.frameworks.notifications.providers.smtp.rawProperties</references>
+</node>

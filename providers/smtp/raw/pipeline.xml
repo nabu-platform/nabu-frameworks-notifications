@@ -1,0 +1,10 @@
+<structure interface="nabu.frameworks.notifications.specs.send" name="pipeline">
+    <structure name="input" restrict="properties">
+        <structure definition="nabu.frameworks.notifications.providers.smtp.rawProperties" name="properties"/>
+    </structure>
+    <structure name="output"/>
+    <field name="subject" type="java.lang.String"/>
+    <structure definition="nabu.frameworks.notifications.specs.address" minOccurs="0" name="address"/>
+    <field name="content" type="[B"/>
+    <structure definition="be.nabu.utils.mime.api.Part" minOccurs="0" name="part"/>
+</structure>
