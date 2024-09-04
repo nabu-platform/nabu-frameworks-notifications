@@ -125,6 +125,14 @@
             <foreignName>notificationInstanceId:properties</foreignName>
             <localName>templateProperties</localName>
         </foreignFields>
+        <foreignFields>
+            <foreignName>notificationInstanceId:notificationProviderId:checkTimeout</foreignName>
+            <localName>checkTimeout</localName>
+        </foreignFields>
+        <foreignFields>
+            <foreignName>notificationInstanceId:started</foreignName>
+            <localName>notificationInstanceStarted</localName>
+        </foreignFields>
         <name>For State Check</name>
         <type>LIST</type>
     </views>

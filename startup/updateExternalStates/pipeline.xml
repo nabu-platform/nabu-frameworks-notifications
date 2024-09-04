@@ -5,6 +5,7 @@
     <field maxOccurs="unbounded" name="connectionIds" type="java.lang.String"/>
     <structure collectionName="notificationInstanceRecipients" definition="nabu.frameworks.notifications.crud.notificationInstanceRecipient.types.outputForStateCheck" maxOccurs="unbounded" minOccurs="0" name="nonFinalRecipients"/>
     <field minOccurs="0" name="now" type="java.util.Date"/>
-    <structure collectionCrudProvider="odata" collectionName="teamsTemplates" definition="java.lang.Object" minOccurs="0" name="providerProperties"/>
-    <structure collectionCrudProvider="odata" collectionName="teamsTemplates" definition="java.lang.Object" minOccurs="0" name="templateProperties"/>
+    <structure collectionName="teamsTemplates" definition="java.lang.Object" minOccurs="0" name="providerProperties"/>
+    <structure collectionName="teamsTemplates" definition="java.lang.Object" minOccurs="0" name="templateProperties"/>
+    <field minOccurs="0" name="timeout" type="java.util.Date"/>
 </structure>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<node artifactManager="be.nabu.eai.module.services.vm.VMServiceManager" created="2024-03-29T10:20:11.384+01:00" lastModified="2024-03-29T11:46:21.066+01:00" leaf="true" version="26">
+<node artifactManager="be.nabu.eai.module.services.vm.VMServiceManager" created="2024-03-29T10:20:11.384+01:00" lastModified="2024-09-04T10:54:32.923+02:00" leaf="true" version="29">
     <environmentId>apollo</environmentId>
     <hidden>false</hidden>
     <locked>false</locked>
@@ -18,4 +18,5 @@
     <references>java.lang.String</references>
     <references>nabu.utils.Server.sleep</references>
     <references>nabu.frameworks.notifications.crud.notificationInstanceRecipient.types.outputForStateCheck</references>
+    <references>nabu.utils.Date.incrementDuration</references>
 </node>

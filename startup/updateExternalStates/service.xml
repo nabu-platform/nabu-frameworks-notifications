@@ -442,6 +442,89 @@
 										<to>nonFinalRecipient/lastExternalStateCheck</to>
 									</steps>
 								</steps>
+								<steps xsi:type="be.nabu.libs.services.vm.step.Sequence"
+										comment="If still not final, check if we need to keep on checking"
+										disabled="false"
+										id="442893d062094d6eae994bcd53680d56"
+										label="!nonFinalRecipient/externalStateFinal"
+										lineNumber="20">
+									<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+											comment="Set to 1D"
+											disabled="false"
+											id="a12a850189e649aeb9dbab799c93e385"
+											label="nonFinalRecipient/checkTimeout == null"
+											lineNumber="21">
+										<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+												disabled="false"
+												id="aef813cf0e194c72a58e54dd5d15a08e"
+												mask="false"
+												optional="false"
+												fixedValue="true">
+											<from>P1D</from>
+											<to>nonFinalRecipient/checkTimeout</to>
+										</steps>
+									</steps>
+									<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+											disabled="false"
+											id="888be3824c9f45b5afeddaa2866b8a64"
+											lineNumber="22">
+										<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+												disabled="false"
+												id="a6277ee37ac04476a21d5f145f7687fa"
+												serviceId="nabu.utils.Date.incrementDuration"
+												resultName="result9e4991b94ebb45c79cf28a22880e4fe8"
+												temporaryMapping="true"
+												x="92"
+												y="80"
+												invocationOrder="0"
+												asynchronous="false"
+												recache="false">
+											<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+													disabled="false"
+													id="41a713d8b03b495dab795b2363ec023a"
+													mask="false"
+													optional="false"
+													fixedValue="false">
+												<from>nonFinalRecipient/notificationInstanceStarted</from>
+												<to>start</to>
+											</steps>
+											<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+													disabled="false"
+													id="a3201202f48c4b2eb9e4cfe74721d84f"
+													mask="false"
+													optional="false"
+													fixedValue="false">
+												<from>nonFinalRecipient/checkTimeout</from>
+												<to>duration</to>
+											</steps>
+										</steps>
+										<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+												disabled="false"
+												id="b70544baa7cd48618f24c50123f2bb23"
+												mask="false"
+												optional="false"
+												fixedValue="false">
+											<from>result9e4991b94ebb45c79cf28a22880e4fe8/date</from>
+											<to>timeout</to>
+										</steps>
+									</steps>
+									<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+											comment="If it is timed out, set to final anyway"
+											disabled="false"
+											id="c877f6f0f66440f1ab3e1d37ae05731a"
+											label="timeout &lt;= now"
+											lineNumber="23">
+										<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+												disabled="false"
+												id="12d12cca7f9340d380005061dbda7fd9"
+												mask="false"
+												optional="false"
+												fixedValue="true">
+											<from>true</from>
+											<to>nonFinalRecipient/externalStateFinal</to>
+										</steps>
+									</steps>
+								</steps>
 							</steps>
 						</steps>
 						<query>nonFinalRecipients</query>
@@ -450,7 +533,7 @@
 							disabled="false"
 							id="dab9d21c180c4bbcb7bb133281c6a608"
 							label="nonFinalRecipients"
-							lineNumber="20">
+							lineNumber="24">
 						<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 								disabled="false"
 								id="b03d885457294fe9b97a5277b7e1638b"
@@ -490,12 +573,12 @@
 				comment="Sleep"
 				disabled="false"
 				id="944d39b5-a9f6-415f-9174-6bb4aeca7b04"
-				lineNumber="21">
+				lineNumber="25">
 			<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 					comment="Check if someone interrupted us while we were running and check diff"
 					disabled="false"
 					id="76eef271073f4854ae6978b58cc6f1c1"
-					lineNumber="22">
+					lineNumber="26">
 				<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 						disabled="false"
 						id="0dd3ec521aad44b795c52de4301cec7f"
@@ -532,7 +615,7 @@
 					disabled="false"
 					id="e07a80f0-e77a-4627-b840-4241c469c20f"
 					label="!interrupted"
-					lineNumber="23">
+					lineNumber="27">
 				<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 						disabled="false"
 						id="a295280e-308a-4db2-b8ae-ccc310d29664"
@@ -567,7 +650,7 @@
 			<steps xsi:type="be.nabu.libs.services.vm.step.Catch"
 					disabled="false"
 					id="b6b3ea39-f948-4aa9-bf3d-66127ca4a8f5"
-					lineNumber="24">
+					lineNumber="28">
 			</steps>
 		</steps>
 		<query>true</query>
