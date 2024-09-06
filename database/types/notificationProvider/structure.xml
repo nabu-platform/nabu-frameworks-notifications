@@ -6,5 +6,5 @@
     <field comment="The id of the service we can use for sending" name="sendId" type="java.lang.String"/>
     <field comment="Static configuration needed for this provider, shared across all notifications" minOccurs="0" name="properties" type="java.lang.String"/>
     <field comment="The id of the service we can use to check the state" minOccurs="0" name="checkStateId" type="java.lang.String"/>
-    <field comment="After how much time do we stop checking the state? Defaults to P1D" minOccurs="0" name="checkTimeout" type="be.nabu.libs.types.base.Duration"/>
+    <field comment="After how much time do we stop checking the state? Defaults to PT1H. The check runs every 5 minutes." minOccurs="0" name="checkTimeout" type="be.nabu.libs.types.base.Duration"/>
 </structure>

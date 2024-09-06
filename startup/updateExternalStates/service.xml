@@ -460,7 +460,7 @@
 												mask="false"
 												optional="false"
 												fixedValue="true">
-											<from>P1D</from>
+											<from>PT1H</from>
 											<to>nonFinalRecipient/checkTimeout</to>
 										</steps>
 									</steps>
