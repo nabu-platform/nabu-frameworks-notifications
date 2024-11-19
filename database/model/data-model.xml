@@ -3,8 +3,8 @@
     <entries>
         <synchronize>true</synchronize>
         <type>nabu.frameworks.notifications.database.types.notificationProvider</type>
-        <x>240</x>
-        <y>348</y>
+        <x>93</x>
+        <y>425</y>
     </entries>
     <entries>
         <synchronize>true</synchronize>
@@ -15,37 +15,37 @@
     <entries>
         <synchronize>true</synchronize>
         <type>nabu.frameworks.notifications.database.types.notificationTemplateOption</type>
-        <x>1189</x>
-        <y>137</y>
-    </entries>
-    <entries>
-        <synchronize>true</synchronize>
-        <type>nabu.frameworks.notifications.database.types.notificationPreference</type>
-        <x>749</x>
-        <y>331</y>
-    </entries>
-    <entries>
-        <synchronize>true</synchronize>
-        <type>nabu.frameworks.notifications.database.types.notificationInstance</type>
-        <x>739</x>
-        <y>578</y>
-    </entries>
-    <entries>
-        <synchronize>true</synchronize>
-        <type>nabu.frameworks.notifications.database.types.notificationTemplateGroup</type>
-        <x>165</x>
+        <x>1239</x>
         <y>58</y>
     </entries>
     <entries>
         <synchronize>true</synchronize>
+        <type>nabu.frameworks.notifications.database.types.notificationPreference</type>
+        <x>643</x>
+        <y>487</y>
+    </entries>
+    <entries>
+        <synchronize>true</synchronize>
+        <type>nabu.frameworks.notifications.database.types.notificationInstance</type>
+        <x>684</x>
+        <y>704</y>
+    </entries>
+    <entries>
+        <synchronize>true</synchronize>
+        <type>nabu.frameworks.notifications.database.types.notificationTemplateGroup</type>
+        <x>73</x>
+        <y>47</y>
+    </entries>
+    <entries>
+        <synchronize>true</synchronize>
         <type>nabu.frameworks.notifications.database.types.notificationInstanceAttachment</type>
-        <x>1264</x>
-        <y>531</y>
+        <x>1237</x>
+        <y>418</y>
     </entries>
     <entries>
         <synchronize>true</synchronize>
         <type>nabu.frameworks.notifications.database.types.notificationInstanceRecipient</type>
-        <x>1263</x>
-        <y>740</y>
+        <x>1265</x>
+        <y>682</y>
     </entries>
 </dataModel>
