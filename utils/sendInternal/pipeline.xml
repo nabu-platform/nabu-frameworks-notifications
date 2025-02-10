@@ -4,7 +4,7 @@
         <structure collectionName="notificationTemplateGroups" definition="nabu.frameworks.notifications.crud.notificationTemplateGroup.types.output" enricher="nabu.frameworks.notifications.crud.notificationTemplateGroup.services.list" name="group" persister="nabu.frameworks.notifications.crud.notificationTemplateGroup.batch.updateAll"/>
         <structure definition="nabu.frameworks.notifications.specs.recipient" maxOccurs="unbounded" minOccurs="0" name="recipients"/>
         <structure collectionName="notificationPreferences" definition="nabu.frameworks.notifications.crud.notificationPreference.types.output" enricher="nabu.frameworks.notifications.crud.notificationPreference.services.list" maxOccurs="unbounded" minOccurs="0" name="preferences" persister="nabu.frameworks.notifications.crud.notificationPreference.batch.updateAll"/>
-        <structure collectionCrudProvider="odata" collectionName="teamsTemplates" definition="java.lang.Object" minOccurs="0" name="variables"/>
+        <structure collectionName="teamsTemplates" definition="java.lang.Object" minOccurs="0" name="variables"/>
         <field comment="The language you want to mandate for this communication. If left open, it will fall back on recipient preference and/or defaults" minOccurs="0" name="language" type="java.lang.String"/>
         <structure definition="nabu.frameworks.notifications.specs.attachment" maxOccurs="unbounded" minOccurs="0" name="attachments"/>
         <field minOccurs="0" name="contextId" type="java.lang.String"/>
@@ -27,8 +27,8 @@
     <structure collectionName="notificationProviders" definition="nabu.frameworks.notifications.crud.notificationProvider.types.output" enricher="nabu.frameworks.notifications.crud.notificationProvider.services.list" minOccurs="0" name="provider" persister="nabu.frameworks.notifications.crud.notificationProvider.batch.updateAll"/>
     <structure allow="recipientId,recipientType,externalState,externalId,externalLink" comment="The instances created by the provider depending on batching capabilities in the case of multiple recipients" definition="nabu.frameworks.notifications.specs.instance" maxOccurs="unbounded" minOccurs="0" name="sentInstances"/>
     <structure definition="nabu.frameworks.notifications.specs.failedRecipient" maxOccurs="unbounded" minOccurs="0" name="failedRecipients"/>
-    <structure collectionCrudProvider="odata" collectionName="teamsTemplates" definition="java.lang.Object" minOccurs="0" name="providerProperties"/>
-    <structure collectionCrudProvider="odata" collectionName="teamsTemplates" definition="java.lang.Object" minOccurs="0" name="optionProperties"/>
+    <structure collectionName="teamsTemplates" definition="java.lang.Object" minOccurs="0" name="providerProperties"/>
+    <structure collectionName="teamsTemplates" definition="java.lang.Object" minOccurs="0" name="optionProperties"/>
     <structure collectionName="notificationInstances" definition="nabu.frameworks.notifications.database.types.notificationInstance" name="instanceToCreate"/>
     <structure collectionName="notificationInstanceAttachments" definition="nabu.frameworks.notifications.database.types.notificationInstanceAttachment" maxOccurs="unbounded" minOccurs="0" name="attachmentsToCreate"/>
     <structure collectionName="notificationInstanceRecipients" definition="nabu.frameworks.notifications.database.types.notificationInstanceRecipient" maxOccurs="unbounded" minOccurs="0" name="recipientsToCreate"/>

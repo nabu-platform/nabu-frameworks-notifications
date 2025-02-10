@@ -907,6 +907,48 @@
 					<from>SUCCEEDED</from>
 					<to>instanceToCreate/state</to>
 				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+						disabled="false"
+						id="50d0a50ea092464392f3155b5e82db9c"
+						serviceId="nabu.utils.Runtime.getConversationId"
+						resultName="result58ec4c331a314fafb3d1cf77696a60a0"
+						temporaryMapping="true"
+						x="530"
+						y="476"
+						invocationOrder="0"
+						asynchronous="false"
+						recache="false">
+				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="e1326929b06c47a6b2834563f10da9ad"
+						mask="false"
+						optional="false"
+						fixedValue="false">
+					<from>result58ec4c331a314fafb3d1cf77696a60a0/conversationId</from>
+					<to>instanceToCreate/conversationId</to>
+				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+						disabled="false"
+						id="e5aac97f533440af83f36ff10d40e1a1"
+						serviceId="nabu.utils.Runtime.getNarrativeId"
+						resultName="resulta6d6179adab44ce39d771ef2228264e0"
+						temporaryMapping="true"
+						x="615"
+						y="397"
+						invocationOrder="0"
+						asynchronous="false"
+						recache="false">
+				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="50674a5381be438283717c54a2955732"
+						mask="false"
+						optional="false"
+						fixedValue="false">
+					<from>resulta6d6179adab44ce39d771ef2228264e0/narrativeId</from>
+					<to>instanceToCreate/narrativeId</to>
+				</steps>
 			</steps>
 			<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 					comment="Get the provider"

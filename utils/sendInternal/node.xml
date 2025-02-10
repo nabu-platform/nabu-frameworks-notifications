@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<node artifactManager="be.nabu.eai.module.services.vm.VMServiceManager" created="2024-03-27T13:27:01.468+01:00" lastModified="2024-06-11T09:45:09.569+02:00" leaf="true" version="148">
-    <environmentId>apollo</environmentId>
+<node artifactManager="be.nabu.eai.module.services.vm.VMServiceManager" created="2024-03-27T13:27:01.468+01:00" lastModified="2025-02-10T13:45:53.197+01:00" leaf="true" version="149">
+    <environmentId>ares</environmentId>
     <hidden>false</hidden>
     <locked>false</locked>
     <properties/>
@@ -11,6 +11,7 @@
     <references>nabu.frameworks.notifications.crud.notificationProvider.types.output</references>
     <references>java.lang.Integer</references>
     <references>nabu.utils.List.getAll</references>
+    <references>nabu.utils.Runtime.getNarrativeId</references>
     <references>nabu.frameworks.notifications.specs.failedRecipient</references>
     <references>nabu.services.jdbc.Services.insert</references>
     <references>nabu.frameworks.notifications.specs.attachment</references>
@@ -39,6 +40,7 @@
     <references>nabu.frameworks.notifications.database.types.notificationInstance</references>
     <references>nabu.frameworks.notifications.crud.notificationProvider.services.list</references>
     <references>nabu.utils.Runtime.getCorrelationId</references>
+    <references>nabu.utils.Runtime.getConversationId</references>
     <references>java.lang.Object</references>
     <references>nabu.utils.List.group</references>
 </node>
