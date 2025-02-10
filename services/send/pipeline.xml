@@ -2,12 +2,13 @@
     <structure name="input">
         <field name="template" type="java.lang.String"/>
         <field comment="Uuids (or contextualized identifiers) of the targets" maxOccurs="unbounded" name="recipients" type="java.lang.String"/>
-        <structure collectionCrudProvider="odata" collectionName="teamsTemplates" definition="java.lang.Object" minOccurs="0" name="variables"/>
+        <structure collectionName="teamsTemplates" definition="java.lang.Object" minOccurs="0" name="variables"/>
         <field comment="The language you want to mandate for this communication. If left open, it will fall back on recipient preference and/or defaults" minOccurs="0" name="language" type="java.lang.String"/>
         <structure definition="nabu.frameworks.notifications.specs.attachment" maxOccurs="unbounded" minOccurs="0" name="attachments"/>
         <field minOccurs="0" name="contextId" type="java.lang.String"/>
         <field minOccurs="0" name="groupId" type="java.lang.String"/>
         <field minOccurs="0" name="allowUnverified" type="java.lang.Boolean"/>
+        <field minOccurs="0" name="batchId" pattern="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|[0-9a-fA-F]{32}" type="java.util.UUID"/>
     </structure>
     <structure name="output">
         <field name="batchId" pattern="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|[0-9a-fA-F]{32}" type="java.util.UUID"/>

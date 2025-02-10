@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<node artifactManager="be.nabu.eai.module.web.component.WebComponentManager" created="2024-03-27T14:31:21.816+01:00" lastModified="2024-05-17T15:05:29.761+02:00" leaf="true" version="4">
-    <environmentId>apollo</environmentId>
+<node artifactManager="be.nabu.eai.module.web.component.WebComponentManager" created="2024-03-27T14:31:21.816+01:00" lastModified="2025-02-05T16:24:01.216+01:00" leaf="true" version="5">
+    <environmentId>ares</environmentId>
     <hidden>false</hidden>
     <locked>false</locked>
     <properties/>
@@ -12,4 +12,5 @@
     <references>nabu.frameworks.notifications.crud.notificationTemplate</references>
     <references>nabu.frameworks.notifications.crud.notificationTemplateGroup</references>
     <references>nabu.frameworks.notifications.crud.notificationTemplateOption</references>
+    <references>nabu.frameworks.notifications.manage.rest.sendDynamic</references>
 </node>

@@ -224,6 +224,14 @@
             <foreignName>notificationInstanceId:notificationTemplateId:name</foreignName>
             <localName>notificationTemplateName</localName>
         </foreignFields>
+        <foreignFields>
+            <foreignName>notificationInstanceId:started</foreignName>
+            <localName>started</localName>
+        </foreignFields>
+        <foreignFields>
+            <foreignName>notificationInstanceId:stopped</foreignName>
+            <localName>stopped</localName>
+        </foreignFields>
         <name>With Notification</name>
         <type>LIST</type>
     </views>

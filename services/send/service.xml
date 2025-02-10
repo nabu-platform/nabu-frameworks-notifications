@@ -288,8 +288,35 @@
 	</steps>
 	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 			disabled="false"
-			id="f4672f6563494e329448700314f59e90"
+			id="e52beb8f7f0c4475b8830589acf92686"
+			label="input/batchId == null"
 			lineNumber="10">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="be525eacb9494129b44a9d8746ce2a21"
+				serviceId="nabu.utils.Server.uuid"
+				resultName="result042e9ed30d2f4d1981d92bfedec9d457"
+				temporaryMapping="true"
+				x="79"
+				y="28"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="7ccfe9b34cd44df68496bbc254d5d490"
+				mask="false"
+				optional="false"
+				fixedValue="false">
+			<from>result042e9ed30d2f4d1981d92bfedec9d457/uuid</from>
+			<to>input/batchId</to>
+		</steps>
+	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			disabled="false"
+			id="f4672f6563494e329448700314f59e90"
+			lineNumber="11">
 		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 				disabled="false"
 				id="7d9e1f6306f94ddbaccdcd291fa6f24f"
@@ -384,11 +411,11 @@
 			</steps>
 			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
 					disabled="false"
-					id="7caeee70450e416399399e10b3baead5"
+					id="133bf95120c145239f74c57f0393bcb6"
 					mask="false"
 					optional="false"
 					fixedValue="false">
-				<from>result3ef2a4f127e8446f8a2066c024a21825/uuid</from>
+				<from>input/batchId</from>
 				<to>batchId</to>
 			</steps>
 		</steps>
@@ -410,25 +437,13 @@
 			<from>result50048be0d6c542b7a301fbea3e20b9b3/notificationInstances[state == "ERROR"]</from>
 			<to>output/failed</to>
 		</steps>
-		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
-				disabled="false"
-				id="3b868e1a609940669e4e36772c3c53a3"
-				serviceId="nabu.utils.Server.uuid"
-				resultName="result3ef2a4f127e8446f8a2066c024a21825"
-				temporaryMapping="true"
-				x="49"
-				y="234"
-				invocationOrder="0"
-				asynchronous="false"
-				recache="false">
-		</steps>
 		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
 				disabled="false"
-				id="befcf2e41c0c4dcba9503423541c8a21"
+				id="fa9e086248e041d5a58fe8be2c3e05f1"
 				mask="false"
 				optional="false"
 				fixedValue="false">
-			<from>result3ef2a4f127e8446f8a2066c024a21825/uuid</from>
+			<from>input/batchId</from>
 			<to>output/batchId</to>
 		</steps>
 	</steps>

@@ -9,4 +9,5 @@
     <webFragments>nabu.frameworks.notifications.crud.notificationTemplate</webFragments>
     <webFragments>nabu.frameworks.notifications.crud.notificationTemplateGroup</webFragments>
     <webFragments>nabu.frameworks.notifications.crud.notificationTemplateOption</webFragments>
+    <webFragments>nabu.frameworks.notifications.manage.rest.sendDynamic</webFragments>
 </webModule>

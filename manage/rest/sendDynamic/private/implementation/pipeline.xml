@@ -1,0 +1,11 @@
+<structure interface="nabu.frameworks.notifications.manage.rest.sendDynamic:api" name="pipeline">
+    <structure name="input"/>
+    <structure name="output"/>
+    <structure definition="org.apache.poi.ss.usermodel.Workbook" minOccurs="0" name="workbook"/>
+    <field maxOccurs="unbounded" minOccurs="0" name="sheets" type="java.lang.String"/>
+    <structure definition="nabu.frameworks.notifications.manage.rest.record" maxOccurs="unbounded" name="records"/>
+    <structure definition="java.lang.Object" name="variables"/>
+    <field minOccurs="0" name="template" type="java.lang.String"/>
+    <field minOccurs="0" name="language" type="java.lang.String"/>
+    <field minOccurs="0" name="batchId" pattern="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|[0-9a-fA-F]{32}" type="java.util.UUID"/>
+</structure>
