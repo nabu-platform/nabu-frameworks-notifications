@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<node artifactManager="be.nabu.eai.module.rest.provider.RESTServiceManager" created="2025-02-05T16:10:22.097+01:00" lastModified="2025-02-05T16:23:51.068+01:00" leaf="true" version="16">
+<node artifactManager="be.nabu.eai.module.rest.provider.RESTServiceManager" created="2025-02-05T16:10:22.097+01:00" lastModified="2025-08-26T12:22:01.554+02:00" leaf="true" version="17">
     <environmentId>ares</environmentId>
     <hidden>false</hidden>
     <locked>false</locked>
